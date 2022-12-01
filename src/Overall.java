@@ -1,4 +1,4 @@
 
-public class Overall {
+public class Overall extends Discount {
 
 }

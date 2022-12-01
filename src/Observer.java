@@ -1,4 +1,4 @@
 
-public class Observer {
+public interface Observer {
 
 }

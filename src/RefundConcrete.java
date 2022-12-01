@@ -1,4 +1,5 @@
 
-public class RefundConcrete {
+public class RefundConcrete extends Refund
+{
 
 }

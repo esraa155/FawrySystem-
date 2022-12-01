@@ -1,4 +1,4 @@
 
-public class Wallet {
+public class Wallet extends Payment{
 
 }

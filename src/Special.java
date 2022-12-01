@@ -1,4 +1,4 @@
 
-public class Special {
+public class Special extends Discount {
 
 }
