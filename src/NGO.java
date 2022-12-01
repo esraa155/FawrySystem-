@@ -1,4 +1,4 @@
 
-public class NGO {
+public class NGO extends Donation {
 
 }

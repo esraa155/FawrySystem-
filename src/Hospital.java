@@ -1,4 +1,4 @@
 
-public class Hospital {
+public class Hospital extends Donation {
 
 }

@@ -1,4 +1,4 @@
 
-public class Donation {
+public class Donation  implements Service{
 
 }

@@ -1,4 +1,4 @@
 
-public class Monthly {
+public class Monthly extends Landine {
 
 }

@@ -1,4 +1,4 @@
 
-public class School {
+public class School extends Donation {
 
 }

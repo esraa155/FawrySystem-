@@ -1,4 +1,5 @@
 
-public class Internet implements Service {
+public class Internet implements Service
+{
 
 }

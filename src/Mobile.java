@@ -1,4 +1,4 @@
 
-public class Mobile {
+public class Mobile  implements Service{
 
 }

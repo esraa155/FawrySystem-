@@ -1,4 +1,4 @@
 
-public class Quarter {
+public class Quarter extends Landine {
 
 }
