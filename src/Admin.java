@@ -26,9 +26,14 @@ public class Admin extends Account {
 			}
 		}
 		return null;
-	}	public String Log_out() {
-		// TODO Auto-generated method stub
-		return null;
+	}	public String Log_out(){
+	    this.loggedIn = false;
+	    return "Logged out";
+	  }
+
+	
+	 
+	  
 	}
 
-}
+
