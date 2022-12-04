@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Admin extends Account {
 
 	String username;
@@ -26,7 +24,8 @@ public class Admin extends Account {
 			}
 		}
 		return null;
-	}	public String Log_out(){
+	}	
+	    public String Log_out(){
 	    this.loggedIn = false;
 	    return "Logged out";
 	  }
