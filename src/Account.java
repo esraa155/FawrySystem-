@@ -1,7 +1,7 @@
 
 public abstract class Account {
 
-	public abstract void log_in();
-	public void Log_out(){}
-	
+	public String type;
+	public abstract Account log_in(String username , String password);
+	public abstract String Log_out();
 }
