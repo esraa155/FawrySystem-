@@ -12,6 +12,7 @@ public class main {
 	Admin admin = Admin.getInstance();
 	Scanner input = new Scanner(System.in);
 	int choice;
+	String s;
 	
 	while (true) {
 		System.out.println("Do you want to log in or sign up:");
@@ -29,13 +30,15 @@ public class main {
 					admin = null;
 					System.out.println("Logged In");
 					System.out.println("========================================");
-					System.out.println("1/ Logout");
-					choice = Integer.parseInt(input.nextLine());
+					System.out.println("Are you want to Logout y/n");
+					s = input.nextLine();
 					if (loggedInCustomer != null) {
-						if (choice == 1) {
+				        if (s.equals("yes")) {
 							System.out.println(loggedInCustomer.Log_out());
-						} else {
-							System.out.println("Input a valid number");
+						}
+						else
+						{
+							System.out.println("anaaaaaaa");
 						}
 					}
 				} else {
@@ -54,14 +57,12 @@ public class main {
 					loggedInCustomer = null;
 					System.out.println("Logged In");
 					System.out.println("========================================");
-					System.out.println("1/ Logout");
-					choice = Integer.parseInt(input.nextLine());
+					System.out.println("Are you want to Logout yes/no");
+					s = input.nextLine();
 					if (loggedInCustomer != null) {
-						if (choice == 1) {
+				        if (s.equals("yes")) {
 							System.out.println(loggedInCustomer.Log_out());
-						} else {
-							System.out.println("Input a valid number");
-						}
+						} 
 					}
 					
 				} else {
@@ -83,7 +84,7 @@ public class main {
 				c = new Customer();
 				loggedInCustomer = c.sign_up(email, username, password, phoneNumber);
 				if (loggedInCustomer != null) {
-					System.out.println("Signed Up and Logged in");
+					System.out.println("Signed Up");
 					System.out.println("========================================");
 				} else {
 					System.out.println("========================================");
