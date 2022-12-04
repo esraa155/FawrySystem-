@@ -29,6 +29,15 @@ public class main {
 					admin = null;
 					System.out.println("Logged In");
 					System.out.println("========================================");
+					System.out.println("1/ Logout");
+					choice = Integer.parseInt(input.nextLine());
+					if (loggedInCustomer != null) {
+						if (choice == 1) {
+							System.out.println(loggedInCustomer.Log_out());
+						} else {
+							System.out.println("Input a valid number");
+						}
+					}
 				} else {
 					System.out.println("========================================");
 					continue;
@@ -45,12 +54,22 @@ public class main {
 					loggedInCustomer = null;
 					System.out.println("Logged In");
 					System.out.println("========================================");
+					System.out.println("1/ Logout");
+					choice = Integer.parseInt(input.nextLine());
+					if (loggedInCustomer != null) {
+						if (choice == 1) {
+							System.out.println(loggedInCustomer.Log_out());
+						} else {
+							System.out.println("Input a valid number");
+						}
+					}
 					
 				} else {
 					System.out.println("Your username or password is not correct");
 					System.out.println("========================================");
 					continue;
 				}
+				
 				break;
 			} else if (choice == 3) {
 				System.out.println("Username : ");
@@ -81,6 +100,7 @@ public class main {
 			System.out.println("The system ended");
 				break;
 			}
+		
 	}
 
 }

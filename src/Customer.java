@@ -51,7 +51,11 @@ public class Customer extends Account implements Observer {
 	        for (Customer customer : Database.customers) {
 	            if (customer.username.equals(username)) {
 	                System.out.println("This username already found");
-	                return null;
+	            return null;
+	            }
+	           else if (customer.email.equals(email)) {
+		             System.out.println("This email already found");
+		              return null;
 	            }
 	        }
 	        Customer c = new Customer(email, username, password, phonenumber);
