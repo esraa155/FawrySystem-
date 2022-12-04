@@ -47,6 +47,19 @@ public class Customer extends Account implements Observer {
         }
 		return null;
 	}
+	   public Customer sign_up(String email, String username, String password, String phonenumber) {
+	        for (Customer customer : Database.customers) {
+	            if (customer.username.equals(username)) {
+	                System.out.println("This username already found");
+	                return null;
+	            }
+	        }
+	        Customer c = new Customer(email, username, password, phonenumber);
+	        c.type = "customer";
+	        c.loggedIn = true;
+	        Database.customers.add(c);
+	        return c;
+	    }
 	public String getEmail() {
 		return email;
 	}
