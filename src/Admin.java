@@ -4,6 +4,7 @@ public class Admin extends Account {
 	String password;
 	String type;
 	boolean loggedIn = false;
+	public Special discount=null;
 	public static Admin instance = new Admin();
 	
 	private Admin() {	}
@@ -30,7 +31,9 @@ public class Admin extends Account {
 	    return "Logged out";
 	  }
 
-	
+	    public void addDiscount(String s,double perc) {
+			 discount.add("we",perc);
+		}
 	 
 	  
 	}
