@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Customer extends Account implements Observer {
 
@@ -6,7 +5,7 @@ public class Customer extends Account implements Observer {
     private String username;
     private String password;
     private String phonenumber;
-    private double amount;
+    public double amount;
     private boolean loggedIn = false;
     private CreditCard creditcard;
 
