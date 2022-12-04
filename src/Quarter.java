@@ -1,4 +1,4 @@
 
-public class Quarter extends Landine {
+public class Quarter extends Landline {
 
 }
