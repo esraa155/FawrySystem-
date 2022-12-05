@@ -1,4 +1,3 @@
-
-public class Quarter extends Landline {
+public class Quarter extends Plan {
 
 }

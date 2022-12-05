@@ -1,4 +1,3 @@
-
-public class Monthly extends Landline {
+public class Monthly extends Plan {
 
 }
