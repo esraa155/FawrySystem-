@@ -1,4 +1,4 @@
-public class Wallet extends Payment{
+public class Wallet implements Payment{
 	private double amount;
 	
 	Wallet(){

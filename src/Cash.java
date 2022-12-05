@@ -1,4 +1,4 @@
-public class Cash extends Payment{
+public class Cash implements Payment{
 	 private  double payamount;
 	
 		public Cash() {
@@ -18,4 +18,6 @@ public class Cash extends Payment{
 	        System.out.print("amount :" + customeramount + "\n");
 
 	    }
+
+	
 }
