@@ -4,20 +4,26 @@ public class Monthly extends Plan {
     String name ="service for Landline Quarterly ";
 
     public void getname(){
+    	
         System.out.println(name);
     }
-    public void pay(Customer c) {
+ public void pay(Customer c ) {
+       
         Scanner input = new Scanner(System.in);
         Payment pay;
         int ch;
-        System.out.print("Enter your Number Phone \n");
-        String phone=input.nextLine();
-
+        System.out.print("Enter amount will paymant\n");
+        double amount = Double.parseDouble(input.nextLine());
+        for(Special s : Database.discount){
+          String n="Monthly",a="monthly";
+          if(n.equals(s.getCompanyname()) ||a.equals(s.getCompanyname()) ){
+            amount= s.pdisco_calcuay(amount,s.getPerc());
+            System.out.println("you have Discount" + s.getPerc()*100+" %\n");
+          }
+        }
         System.out.print("How want you will paymant ?\n1-creditcard\n2-wallet\n3-cach\n4-Exit\n");
         ch = Integer.parseInt(input.nextLine());
         if (ch == 1) {
-          System.out.print("Enter amount will paymant\n");
-          int amount = Integer.parseInt(input.nextLine());
           System.out.print("Enter the card number: ");
           String number = input.nextLine();
           System.out.print("Enter the CVV code: ");
@@ -28,8 +34,7 @@ public class Monthly extends Plan {
     
         }
         if (ch == 2) {
-          System.out.print("Enter amount will paymant ");
-          int amount = Integer.parseInt(input.nextLine());
+         
           pay = new Wallet();
           pay.pay(c.getAmount(), amount);
           System.out.println("===================");
@@ -37,8 +42,7 @@ public class Monthly extends Plan {
         }
         if (ch == 3) {
     
-          System.out.print("Enter amount will paymant ");
-          int amount = Integer.parseInt(input.nextLine());
+         
           pay = new Cash();
           // pay.setAmount(c.getAmount());
           pay.pay(c.getAmount(), amount);

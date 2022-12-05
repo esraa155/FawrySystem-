@@ -14,6 +14,7 @@ public class  Donation  implements Service{
 				Dp.getname();
 				Dp.pay(c);
 	        }
+	        
 	        else if(option == 3){
 	            Dp = new School();
 				Dp.getname();

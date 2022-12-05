@@ -1,7 +1,7 @@
 public class Landline  implements Service {
     Plan p;
     Landline(){
-        
+       
     }
     public void createProvider(int option,Customer c){
         if(option == 1){

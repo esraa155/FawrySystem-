@@ -1,6 +1,5 @@
 public class Wallet implements Payment{
 	private double amount;
-	
 	Wallet(){
 	}
 	public void setAmount(double amount) {
