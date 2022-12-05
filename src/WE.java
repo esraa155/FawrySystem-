@@ -1,4 +1,5 @@
-
-public class WE implements ServiceProvider  {
-
+public abstract class WE implements ServiceProvider {
+    WE(){
+        
+    }
 }

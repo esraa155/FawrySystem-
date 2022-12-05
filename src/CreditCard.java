@@ -11,7 +11,6 @@ public class CreditCard extends Payment{
 
 
     public CreditCard(String number, String cvv) {
-        this.amount = 100000;
         this.number = number;
         this.cvv = cvv;
     }
@@ -25,10 +24,10 @@ public class CreditCard extends Payment{
     }
 
 
-    public void pay(double paymentAmount) {
+    public void pay(double customeramount,double paymentAmount) {
 
         System.out.println("Paying " + paymentAmount + " using Credit Card.");
-        setAmount(getAmount() - paymentAmount);
-        System.out.print("amount :" + getAmount() + "\n");
+        customeramount -= paymentAmount;
+        System.out.print("amount :" + customeramount + "\n");
     }
 }
