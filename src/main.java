@@ -16,6 +16,8 @@ public class main {
   Form f = new Form();
     ArrayList<String> servicesName = new ArrayList<String>();
     Customer Cu = new Customer("esraa@", "esraa", "123", "0111555");
+    Customer Cust = new Customer("ibrahim@", "ibrahim", "12345", "0112345");
+    Database.customers.add(Cust);
     Database.customers.add(Cu);
     Account a;
     Customer c=new Customer();
@@ -29,6 +31,7 @@ public class main {
     String d;
     
     System.out.println("=========================================================");
+    System.out.println("the username of Customer  'ibrahim'   the password   '12345'");
     System.out.println("the username of Customer  'esraa'   the password   '123'");
         System.out.println("the username of admin  'admin'   the password   'admin'");
         System.out.println("=========================================================");
@@ -65,8 +68,7 @@ public class main {
                     opt = Integer.parseInt(input.nextLine());
                     Mobile mob = new Mobile();
                     mob.createProvider(opt,(Customer) a);
-
-} else if (Option == 2) {
+                    } else if (Option == 2) {
                     System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
                     int opt;
                     opt = Integer.parseInt(input.nextLine());

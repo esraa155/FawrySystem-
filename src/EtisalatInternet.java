@@ -43,7 +43,6 @@ public class EtisalatInternet extends Etisalat{
     
          
           pay = new Cash();
-          // pay.setAmount(c.getAmount());
           pay.pay(c.getAmount(), amount);
           System.out.println("===================");
     
