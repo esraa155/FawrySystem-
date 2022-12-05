@@ -1,15 +1,25 @@
-public class Special implements Discount {
-	private double perc=0.0;
+public class Special extends Discount {
+	private double perc;
 	Payment pay;
-    public double disco_calcu(double amount,double perc){
+	Customer c;
+    public double disco_calcu(Payment pay,double amount,double perc){
 		pay.setAmount(amount);
-		amount = amount*perc;
-		
-		
+		amount = amount-(amount*perc);
 		return amount;
 	}
+    public Special(Payment pay){
+        super(pay);
+
+    }
+    @Override public void pay()
+    {
+        pay.pay(c.getAmount(),amount);
+        disco_calcu(pay,pay.getAmount(), perc);
+    }
+    
     
     public void add(String n,double perc){
-    	
+    	this.disco_calcu(pay,pay.getAmount(), perc);
     }
+
 }
