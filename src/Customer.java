@@ -83,17 +83,18 @@ public class Customer extends Account implements Observer {
     public void search() {
         System.out.println("Enter Service name you want ");
         String name = input.nextLine();
-      for(String names: Database.servicesName){
-          if(names.contains(name)){
-          System.out.println("Service "+name+" is Found");
-          break;
-          }
-      else if(names.equals(name)){
-      System.out.println("Service "+name+" is not Found");
-      break;}
-     
-      
-    }
+        boolean notF = false;
+        for (String names : Database.servicesName) {
+            if (names.contains(name)) {
+                System.out.println("Service " + name + " is Found");
+                notF = true;
+                break;
+            }
+        }
+        if (notF == false) {
+            System.out.println("Service " + name + " is not Found");
+        }
+    
 }
 
 
