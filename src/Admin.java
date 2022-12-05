@@ -28,7 +28,6 @@ public class Admin extends Account {
 	}	
 	    public String Log_out(){
 	    this.loggedIn = false;
-		System.out.println("Logged Out");
 		return "Logged Out";
 	  }
 

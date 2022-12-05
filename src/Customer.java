@@ -96,7 +96,8 @@ public class Customer extends Account implements Observer {
 
 
     public void checkDiscount() {
-
+        //for(String names:Database.discount)
+        	//System.out.println("ServiceDiscount " + names);
     }
 
 

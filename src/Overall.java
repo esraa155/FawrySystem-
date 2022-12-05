@@ -17,9 +17,4 @@ public class Overall extends Discount {
         disco_calcu(pay,pay.getAmount(), perc);
     }
     
-    
-    public void add(String n,double perc){
-    	this.disco_calcu(pay,pay.getAmount(), perc);
-    }
-
 }

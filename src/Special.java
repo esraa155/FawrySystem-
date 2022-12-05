@@ -2,6 +2,7 @@ public class Special extends Discount {
 	private double perc;
 	Payment pay;
 	Customer c;
+	private String companyname;
     public double disco_calcu(Payment pay,double amount,double perc){
 		pay.setAmount(amount);
 		amount = amount-(amount*perc);

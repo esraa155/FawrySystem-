@@ -12,7 +12,6 @@ public class main {
 		Database.services.add(mobile);
 		Database.services.add(internet);
 		Database.services.add(landline);
-		Form f = new Form();
 		Database.services.add(donation);
 		ArrayList<String> servicesName = new ArrayList<String>();
 		servicesName.add("Mobile");
@@ -23,18 +22,21 @@ public class main {
 		servicesName.add("landline");
 		servicesName.add("Dontion");
 		servicesName.add("dontion");
+		Form f = new Form();
 
 		Customer Cu = new Customer("esraa@", "esraa", "123", "0111555");
 		Database.customers.add(Cu);
 
 		Account a;
-		Customer c;
+		Customer c = null;
 		Customer loggedInCustomer = new Customer();
 		Admin admin = Admin.getInstance();
 		Scanner input = new Scanner(System.in);
 		int choice;
 		int ch;
+		int choose;
 		String s;
+		String d;
 
 		while (true) {
 			System.out.println("Do you want to log in or sign up:");
@@ -53,7 +55,7 @@ public class main {
 						System.out.println("Logged In");
 						System.out.println("========================================");
 						while (true) {
-							System.out.println("1/ services \n2/ serach\n3/ logout");
+							System.out.println("1/ services \n2/ serach \n3/ checkDiscount \n4/ logout");
 							ch = Integer.parseInt(input.nextLine());
 							if (ch == 1) {
 								while (true) {
@@ -119,7 +121,11 @@ public class main {
 									System.out.println("Service " + name_ + " is not Found");
 								}
 							}
-							if (ch == 3) {
+							else if(ch==3)
+							{
+								c.checkDiscount();
+							}
+							else if (ch == 3) {
 								System.out.println(loggedInCustomer.Log_out());
 								break;
 							}
@@ -138,29 +144,35 @@ public class main {
 					if (admin != null) {
 						loggedInCustomer = null;
 						System.out.println("Logged In");
+						while(true)
+						{
 						System.out.println("1 Add Discount \n2 show list of refund \n3 logout");
 						System.out.println("========================================");
-						
-						s = input.nextLine();
-						if (loggedInCustomer != null) {
-							if (s.equals("1")) {
-								
+						choose = Integer.parseInt(input.nextLine());
+							if (choose==1) {
+								System.out.println("enter service name that you are want to add discount in it ");
+								d = input.nextLine();
+								System.out.println("Enter the percentage ");
+								choose = Integer.parseInt(input.nextLine());
+								//Database.discount.add(d,choose);
 							}
-							else if(s.equals("2")){
+							else if(choose==2){
 
 							}
-							else if(s.equals("3")){
-								System.out.println(loggedInCustomer.Log_out());
+							else if(choose==3){
+								System.out.println(a.Log_out());
+								break;
 							}
+							System.out.println("========================================");
+							continue;
+					 	  }
 						}
-
-					} else {
+					 else {
 						System.out.println("Your username or password is not correct");
 						System.out.println("========================================");
 						continue;
-					}
-
-					break;
+					   }
+                   break;
 				} else if (choice == 3) {
 					System.out.println("Username : ");
 					String username = input.nextLine();
@@ -190,7 +202,6 @@ public class main {
 				System.out.println("The system ended");
 				break;
 			}
-
 		}
 
 	}
