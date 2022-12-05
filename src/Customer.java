@@ -3,7 +3,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Customer extends Account implements Observer {
-
+	 public static ArrayList<Receipt> tr  = new ArrayList<Receipt>();
+	protected static int Id=0;
     private String email;
     private String username;
     private String password;
@@ -19,6 +20,7 @@ public class Customer extends Account implements Observer {
         phonenumber = "1123";
         amount = 1000.0;
         creditcard = null;
+        Id++;
     }
  
 
@@ -31,6 +33,7 @@ public class Customer extends Account implements Observer {
 		this.amount = amount;
 		this.loggedIn = loggedIn;
 		this.creditcard = creditcard;
+		Id++;
 	}
 	   public Customer(String email, String username, String password, String phonenumber) {
        this.email = email;
@@ -38,6 +41,7 @@ public class Customer extends Account implements Observer {
         this.password = password;
        this.phonenumber = phonenumber;
        this.amount = 1000.0;
+       Id++;
    }
     public Account log_in(String username, String password) {
         for (Customer customer : Database.customers) {
@@ -114,6 +118,18 @@ Database.servicesName.add("Mobile");
     	}
     }
 
+    void requestRefund(int id) {
+    	Scanner myObj = new Scanner(System.in);
+        String code, name, price;
+        System.out.println("Enter Name of service:");
+        name = myObj.next();
+        System.out.println("Enter code number of operation:");
+        code = myObj.next();
+        System.out.println("Enter price odf service:");
+        price = myObj.next();
+        Receipt R = new Receipt(getAmount(), Id,id);
+        Database.refund.add(R);
+    }
 
     public String getEmail() {
         return email;

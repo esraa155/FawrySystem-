@@ -30,11 +30,13 @@ public class main {
     String s;
     String d;
     
-    System.out.println("=========================================================");
-    System.out.println("the username of Customer  'ibrahim'   the password   '12345'");
-    System.out.println("the username of Customer  'esraa'   the password   '123'");
-        System.out.println("the username of admin  'admin'   the password   'admin'");
-        System.out.println("=========================================================");
+    System.out.println("=========================================================================================");
+    System.out.println("the username of defult Customer  'ibrahim'   the password   '12345'");
+    System.out.println("the username of defult Customer  'esraa'   the password   '123'");
+    System.out.println("customer can search of services name like 'Mobile' & 'Internet'");
+    System.out.println("the username of admin  'admin'   the password   'admin'");
+    System.out.println("admin can add discount by name of services providers like 'WEMobile' & 'OrangeInternet'");
+    System.out.println("==========================================================================================");
         
     while (true) {
       System.out.println("Do you want to log in or sign up:");
@@ -53,7 +55,7 @@ public class main {
             System.out.println("Logged In");
             System.out.println("========================================");
             while (true) {
-              System.out.println("1/ choose services \n2/ serach of service name \n3/ checkDiscount \n4/ logout");
+              System.out.println("1/ choose services \n2/ serach of service name \n3/ checkDiscount \n4/ request refund \n5/ show me notification \n6/ logged out");
               ch = Integer.parseInt(input.nextLine());
               if (ch == 1) {
                 while (true) {
@@ -102,9 +104,15 @@ public class main {
                 c.checkDiscount();
               }
               else if (ch == 4) {
-                System.out.println(loggedInCustomer.Log_out());
-                break;
+                c.RequestRefund();
               }
+              else if (ch == 5) {
+                   admin.print(c.Id);
+                }
+              else if (ch == 6) {
+                  System.out.println(loggedInCustomer.Log_out());
+                  break;
+                }
               System.out.println("========================================");
               continue;
             }
@@ -129,7 +137,8 @@ public class main {
                 admin.addDiscount();
               }
               else if(choose==2){
-}
+            	  admin.listRefunds();
+              }
               else if(choose==3){
                 System.out.println(a.Log_out());
                 break;

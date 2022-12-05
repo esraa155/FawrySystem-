@@ -1,45 +1,40 @@
 public class Receipt {
-    int customerId = 0;
-    Payment p;
-    private String serivcename;
-    private int ReceiptId = 0;
-    private String Statue;
-    private int amount;
 
-    Receipt(int customerId, int ReceiptId, String serivcename, int amount) {
-        this.customerId = customerId;
-        this.ReceiptId = ReceiptId;
-        this.serivcename = serivcename;
-        this.amount = amount;
-    }
-    
+    Customer c=new Customer();
+    public Receipt(double d,int username,int customerReceiptId) {
 
-    public int getCutomer() {
-        return customerId;
-    }
+        this.servicePrice=d;
 
-    public int getReceiptId() {
-        return ReceiptId;
+        this.userNum=username;
+        this.customerReceiptId=customerReceiptId;
     }
+        private String serviceName;
 
-    public int getamount() {
-        return amount;
-    }
+        private int customerReceiptId;
 
-    public String getStatue() {
-        return Statue;
-    }
+        private double servicePrice;
+        private String serviceStatus;
+        private String serviceCode;
 
-    public String getserivcename() {
-        return serivcename;
-    }
+        int userNum;
 
-    public void printReceipt(int customerId, int ReceiptId, String Statue, int amount) {
-        System.out.println(customerId);
-        System.out.println(ReceiptId);
-        System.out.println(Statue);
-        System.out.println(amount);
-        System.out.println("========================================");
-    }
+
+
+        public Integer userNumId;
+        public String getServiceName() {
+            return serviceName;
+        }
+
+
+
+        public String getServiceStatus() {
+            return serviceStatus;
+        }
+        public String getServiceCode() {
+            return serviceCode;
+        }
+        public void setServiceStatus(String serviceStatus) {
+            this.serviceStatus = serviceStatus;
+        }
 
 }

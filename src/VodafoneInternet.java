@@ -55,5 +55,8 @@ public class VodafoneInternet extends Vodafone {
     
           
         }
+        Receipt R=new Receipt( c.getAmount(), c.Id,c.tr.size());
+        Database.tr.add(R);
+        c.tr.add(R);
       }
 }

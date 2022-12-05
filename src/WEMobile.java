@@ -53,4 +53,7 @@ String name="service for WE Mobile";
         
               
             }
+            Receipt R=new Receipt( c.getAmount(), c.Id,c.tr.size());
+            Database.tr.add(R);
+            c.tr.add(R);
           }}
