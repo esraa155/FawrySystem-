@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Customer extends Account implements Observer {
 
@@ -8,7 +11,7 @@ public class Customer extends Account implements Observer {
     public double amount;
     private boolean loggedIn = false;
     private CreditCard creditcard;
-
+    Scanner input = new Scanner(System.in);
     public Customer() {
         email = "";
         username = "";
@@ -75,10 +78,24 @@ public class Customer extends Account implements Observer {
         Database.customers.add(c);
         return c;
     }
+    Database d;
 
     public void search() {
-
+        System.out.println("Enter Service name you want ");
+        String name = input.nextLine();
+      for(String names: Database.servicesName){
+          if(names.contains(name)){
+          System.out.println("Service "+name+" is Found");
+          break;
+          }
+      else if(names.equals(name)){
+      System.out.println("Service "+name+" is not Found");
+      break;}
+     
+      
     }
+}
+
 
     public void checkDiscount() {
 
@@ -148,4 +165,5 @@ public class Customer extends Account implements Observer {
 	public void setCreditcard(CreditCard creditcard) {
 		this.creditcard = creditcard;
 	}
+    
 }

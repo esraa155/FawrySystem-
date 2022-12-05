@@ -18,5 +18,9 @@ public class Internet implements Service
             prov = new OrangeInternet();
         }
     }
+    public boolean contains(String name_) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 }
 

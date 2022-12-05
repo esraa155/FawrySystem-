@@ -5,25 +5,16 @@ import java.util.ArrayList;
 public class main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-    Service mobile = new Mobile();
-    Service internet = new Internet();
-	Service landline = new Landline();
-	Service donation = new Donation();
-	Database.services.add(mobile);
-	Database.services.add(internet);
-	Database.services.add(landline);
 	Form f=new Form();
-	Database.services.add(donation);
-    ArrayList<String> servicesName  = new ArrayList<String>();
-	servicesName.add("Mobile");
-	servicesName.add("Internet");
-	servicesName.add("Landline");
-	servicesName.add("Dontion");
+	ArrayList<String> servicesName  = new ArrayList<String>();
+   Database. servicesName.add("Internet");
+	Database.servicesName.add("Mobile");
+	Database.servicesName.add("Landline");
+	Database.servicesName.add("Donation");
 
 	Account a;
-	Customer c;
+	Customer c=new Customer();
+	
 	Admin m = null;
 	Customer loggedInCustomer = new Customer();
 	Admin admin = Admin.getInstance();
@@ -49,7 +40,7 @@ public class main {
 					System.out.println("Logged In");
 					System.out.println("========================================");
 					while(true){
-						System.out.println("1/ services \n2/ serach\n3/ logout");
+						System.out.println("1/ choice services \n2/ search of Services\n3/ logout");
 						 ch = Integer.parseInt(input.nextLine());
 						  if (ch == 1) 
 						  {
@@ -61,7 +52,7 @@ public class main {
 									f.createService(Option);
 									if(Option==1)
 									{
-										System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
+										System.out.println("1/ WE \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
 										int opt;
 										opt = Integer.parseInt(input.nextLine());
 										Mobile mob=new Mobile();
@@ -99,24 +90,15 @@ public class main {
 							  }
 							  else if(ch==2) 
 							  {
-								  System.out.println("Enter Service name you want ");
-								  String name_ = input.nextLine();
-								for(String names: servicesName){
-                                    if(names.contains(name_)){
-									System.out.println("Service "+name_+" is Found");
-									break;
-									}
-								}
-								System.out.println("Service "+name_+" is not Found");
-								
-							  }
-							  if (ch==3) 
-							  {
-								 System.out.println(loggedInCustomer.Log_out());
-								  break;
-							  }
-							  System.out.println("========================================");
-							  continue;
+								c.search();
+							}
+							if (ch==3) 
+							{
+							   System.out.println(loggedInCustomer.Log_out());
+								break;
+							}
+							System.out.println("========================================");
+							continue;
 				    } 
 				} 
 				break;

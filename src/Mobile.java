@@ -18,5 +18,9 @@ public class Mobile  implements Service{
             prov = new OrangeMobile();
         }
     }
+    public boolean contains(String name_) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 }
 

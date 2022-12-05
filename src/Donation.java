@@ -15,4 +15,8 @@ public class Donation  implements Service{
 	        }
 	      
 	    }
+		public boolean contains(String name_) {
+			// TODO Auto-generated method stub
+			return false;
+		}
 }
