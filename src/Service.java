@@ -1,3 +1,3 @@
 public interface Service {
-	public void createProvider(int option);
+	public void createProvider(int option,Customer c);
 }

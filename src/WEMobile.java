@@ -5,11 +5,12 @@ String name="service for WE Mobile";
         public void getname(){
             System.out.println(name);
         }
-        public void pay() {
+        public void pay(Customer c) {
             Scanner input = new Scanner(System.in);
             Payment pay;
             int ch;
-            Customer c = new Customer();
+            System.out.print("Enter your Number Phone \n");
+            String phone=input.nextLine();
             System.out.print("How want you will paymant ?\n1-creditcard\n2-wallet\n3-cach\n4-Exit\n");
             ch = Integer.parseInt(input.nextLine());
             if (ch == 1) {

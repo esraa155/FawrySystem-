@@ -1,6 +1,6 @@
 public interface ServiceProvider {
 
-    void pay();
+    void pay(Customer c);
 
 	void getname();
 

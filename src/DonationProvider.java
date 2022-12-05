@@ -2,5 +2,5 @@ public interface DonationProvider {
 
     public  void getname(); 
 
-    public void pay();
+    public void pay(Customer c);
 }

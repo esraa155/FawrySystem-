@@ -64,24 +64,25 @@ public class main {
 										opt = Integer.parseInt(input.nextLine());
 										Mobile mob = new Mobile();
 										mob.createProvider(opt);
+
 									} else if (Option == 2) {
 										System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
 										int opt;
 										opt = Integer.parseInt(input.nextLine());
 										Internet Inter = new Internet();
-										Inter.createProvider(opt);
+										Inter.createProvider(opt,(Customer) a);
 									} else if (Option == 3) {
 										System.out.println("1/Quarterly   \n2/ Monthly ");
 										int opt;
 										opt = Integer.parseInt(input.nextLine());
 										Landline land = new Landline();
-										land.createProvider(opt);
+										land.createProvider(opt,(Customer) a);
 									} else if (Option == 4) {
 										System.out.println("1/NGO  \n2/Hospital \n3/School ");
 										int opt;
 										opt = Integer.parseInt(input.nextLine());
 										Donation Doan = new Donation();
-										Doan.createProvider(opt);
+										Doan.createProvider(opt,(Customer) a);
 									} else if (Option == 5) {
 										System.out.println("ended services");
 										break;
