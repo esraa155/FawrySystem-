@@ -3,8 +3,7 @@ public class Form {
     Form(Service s){
         this.service=s;
     }
-    Form(){
-        
+    Form(){ 
     }
     void createService(int option){
 		if(option == 1){

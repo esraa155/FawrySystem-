@@ -3,36 +3,27 @@ import java.util.ArrayList;
 
 public class main {
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
 
-		Service mobile = new Mobile();
-		Service internet = new Internet();
-		Service landline = new Landline();
-		Service donation = new Donation();
-		Database.services.add(mobile);
-		Database.services.add(internet);
-		Database.services.add(landline);
-		Database.services.add(donation);
-		ArrayList<String> servicesName = new ArrayList<String>();
-		servicesName.add("Mobile");
-		servicesName.add("mobile");
-		servicesName.add("Internet");
-		servicesName.add("internet");
-		servicesName.add("Landline");
-		servicesName.add("landline");
-		servicesName.add("Dontion");
-		servicesName.add("dontion");
-		Form f = new Form();
-
-		Customer Cu = new Customer("esraa@", "esraa", "123", "0111555");
-		Database.customers.add(Cu);
-
-		Account a;
-		Customer c = null;
-		Customer loggedInCustomer = new Customer();
-		Admin admin = Admin.getInstance();
-		Scanner input = new Scanner(System.in);
-		int choice;
+	Service mobile = new Mobile();
+    Service internet = new Internet();
+    Service landline = new Landline();
+    Service donation = new Donation();
+    Database.services.add(mobile);
+    Database.services.add(internet);
+    Database.services.add(landline);
+    Database.services.add(donation);
+	Form f = new Form();
+    ArrayList<String> servicesName = new ArrayList<String>();
+    Customer Cu = new Customer("esraa@", "esraa", "123", "0111555");
+    Database.customers.add(Cu);
+    Account a;
+    Customer c=new Customer();
+    Customer loggedInCustomer = new Customer();
+    Admin admin = Admin.getInstance();
+    Scanner input = new Scanner(System.in);
+    int choice;
 		int ch;
 		int choose;
 		String s;
@@ -69,26 +60,26 @@ public class main {
 										int opt;
 										opt = Integer.parseInt(input.nextLine());
 										Mobile mob = new Mobile();
-										mob.createProvider(opt);
+										mob.createProvider(opt,(Customer) a);
 
 									} else if (Option == 2) {
 										System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
 										int opt;
 										opt = Integer.parseInt(input.nextLine());
 										Internet Inter = new Internet();
-										Inter.createProvider(opt);
+										mob.createProvider(opt,(Customer) a);
 									} else if (Option == 3) {
 										System.out.println("1/Quarterly   \n2/ Monthly ");
 										int opt;
 										opt = Integer.parseInt(input.nextLine());
 										Landline land = new Landline();
-										land.createProvider(opt);
+										mob.createProvider(opt,(Customer) a);
 									} else if (Option == 4) {
 										System.out.println("1/NGO  \n2/Hospital \n3/School ");
 										int opt;
 										opt = Integer.parseInt(input.nextLine());
 										Donation Doan = new Donation();
-										Doan.createProvider(opt);
+										mob.createProvider(opt,(Customer) a);
 									} else if (Option == 5) {
 										System.out.println("ended services");
 										break;
@@ -107,25 +98,13 @@ public class main {
 
 								}
 							} else if (ch == 2) {
-								System.out.println("Enter Service name you want ");
-								String name_ = input.nextLine();
-								boolean notF = false;
-								for (String names : servicesName) {
-									if (names.contains(name_)) {
-										System.out.println("Service " + name_ + " is Found");
-										notF = true;
-										break;
-									}
-								}
-								if (notF == false) {
-									System.out.println("Service " + name_ + " is not Found");
-								}
+									c.search();
 							}
 							else if(ch==3)
 							{
 								c.checkDiscount();
 							}
-							else if (ch == 3) {
+							else if (ch == 4) {
 								System.out.println(loggedInCustomer.Log_out());
 								break;
 							}
