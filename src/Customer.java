@@ -21,6 +21,8 @@ public class Customer extends Account implements Observer {
         creditcard = null;
     }
 
+
+
 	public Customer(String email, String username, String password, String phonenumber, double amount, boolean loggedIn, CreditCard creditcard) {
 		this.email = email;
 		this.username = username;
@@ -78,19 +80,30 @@ public class Customer extends Account implements Observer {
     Database d;
 
     public void search() {
+
+
+
+Database.servicesName.add("Mobile");
+     Database.servicesName.add("mobile");
+     Database.servicesName.add("Internet");
+     Database. servicesName.add("internet");
+     Database.servicesName.add("Landline");
+     Database. servicesName.add("landline");
+     Database. servicesName.add("Dontion");
+     Database. servicesName.add("dontion");
         System.out.println("Enter Service name you want ");
-        String name = input.nextLine();
-        boolean notF = false;
-        for (String names : Database.servicesName) {
-            if (names.contains(name)) {
-                System.out.println("Service " + name + " is Found");
-                notF = true;
-                break;
-            }
-        }
-        if (notF == false) {
-            System.out.println("Service " + name + " is not Found");
-        }
+                                String name = input.nextLine();
+                                boolean notF = false;
+                                for (String names :Database.servicesName) {
+                                    if (names.contains(name)) {
+                                        System.out.println("Service " + name + " is Found");
+                                        notF = true;
+                                        break;
+                                    }
+                                }
+                                if (notF == false) {
+                                    System.out.println("Service " + name + " is not Found");
+                                }
     
 }
 
@@ -163,5 +176,12 @@ public class Customer extends Account implements Observer {
 	public void setCreditcard(CreditCard creditcard) {
 		this.creditcard = creditcard;
 	}
+
+    public void RequestRefund() {
+Database d;
+for (Receipt names : Database.refund) {
+
+    }
+
     
-}
+    }}

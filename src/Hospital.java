@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 public class Hospital implements DonationProvider {
-  String name = "service for Hospital ";
+   String name ="service for Hosbtel ";
 
    public void getname(){
        System.out.println(name);
    }
-   public void pay() {
+   public void pay(Customer c) {
     Scanner input = new Scanner(System.in);
     Payment pay;
     int ch;
@@ -25,6 +25,7 @@ public class Hospital implements DonationProvider {
       pay = new CreditCard(number, cvv);
       pay.pay(c.getAmount(), amount);
       System.out.println("===================");
+
     }
     if (ch == 2) {
       System.out.print("Enter amount will paymant ");
@@ -32,18 +33,23 @@ public class Hospital implements DonationProvider {
       pay = new Wallet();
       pay.pay(c.getAmount(), amount);
       System.out.println("===================");
+
     }
     if (ch == 3) {
+
       System.out.print("Enter amount will paymant ");
       int amount = Integer.parseInt(input.nextLine());
       pay = new Cash();
       // pay.setAmount(c.getAmount());
       pay.pay(c.getAmount(), amount);
       System.out.println("===================");
+
     }
     if (ch == 4) {
       System.out.println("The system ended");
       System.out.println("===================");
+
+      
     }
   }
 }
