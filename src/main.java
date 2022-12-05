@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class main {
 
 	public static void main(String[] args) {
-
 		Service mobile = new Mobile();
 		Service internet = new Internet();
 		Service landline = new Landline();
@@ -23,10 +22,8 @@ public class main {
 		servicesName.add("landline");
 		servicesName.add("Dontion");
 		servicesName.add("dontion");
-
 		Customer Cu = new Customer("esraa@", "esraa", "123", "0111555");
 		Database.customers.add(Cu);
-
 		Account a;
 		Customer c;
 		Customer loggedInCustomer = new Customer();
@@ -35,7 +32,6 @@ public class main {
 		int choice;
 		int ch;
 		String s;
-
 		while (true) {
 			System.out.println("Do you want to log in or sign up:");
 			while (true) {
@@ -68,7 +64,6 @@ public class main {
 										opt = Integer.parseInt(input.nextLine());
 										Mobile mob = new Mobile();
 										mob.createProvider(opt);
-
 									} else if (Option == 2) {
 										System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
 										int opt;
@@ -96,13 +91,11 @@ public class main {
 									int Op;
 									Op = Integer.parseInt(input.nextLine());
 									Internet Inter = new Internet();
-
 									if (Op == 1) {
 										continue;
 									} else if (Op == 2) {
 										break;
 									}
-
 								}
 							} else if (ch == 2) {
 								System.out.println("Enter Service name you want ");
@@ -140,26 +133,21 @@ public class main {
 						System.out.println("Logged In");
 						System.out.println("1 Add Discount \n2 show list of refund \n3 logout");
 						System.out.println("========================================");
-						
 						s = input.nextLine();
 						if (loggedInCustomer != null) {
 							if (s.equals("1")) {
-								
-							}
-							else if(s.equals("2")){
 
-							}
-							else if(s.equals("3")){
+							} else if (s.equals("2")) {
+
+							} else if (s.equals("3")) {
 								System.out.println(loggedInCustomer.Log_out());
 							}
 						}
-
 					} else {
 						System.out.println("Your username or password is not correct");
 						System.out.println("========================================");
 						continue;
 					}
-
 					break;
 				} else if (choice == 3) {
 					System.out.println("Username : ");

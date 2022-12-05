@@ -4,8 +4,9 @@ public class Database {
 	public static ArrayList<Customer> customers  = new ArrayList<Customer>();
 	public static ArrayList<Service> services  = new ArrayList<Service>();
 	public static ArrayList<Discount> discount  = new ArrayList<Discount>();
-
+	
 	public static ArrayList<String> servicesName  = new ArrayList<String>();
+
     Database(){
 
 	}
