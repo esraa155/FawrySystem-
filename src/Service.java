@@ -1,6 +1,3 @@
 public interface Service {
-
-    boolean contains(String name_);
-
-	
+	public void createProvider(int option);
 }

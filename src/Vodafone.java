@@ -1,18 +1,7 @@
-public class Vodafone implements ServiceProvider {
- Vodafone(){
-        
-    }
+import java.util.Scanner;
 
-
-    VodafoneMobile M;
-    VodafoneInternet I;
-   public void createProvider(int option){
-       if(option == 1){
-           M = new VodafoneMobile();
-       }
-       else if(option == 2){
-           I = new VodafoneInternet();
-       }
-     
-   }
+public abstract class Vodafone implements ServiceProvider {
+    public abstract void getname();{ }
+    public abstract void pay(); {}
+       
 }

@@ -1,16 +1,8 @@
+import java.util.Scanner;
+
 public abstract class WE implements ServiceProvider {
-    WE(){
-        
-    }
-    WEMobile M;
-    WEInternet I;
-    public void createProvider(int option){
-        if(option == 1){
-            M = new WEMobile();
+
+        public abstract void getname();{
         }
-        else if(option == 2){
-            I = new WEInternet();
-        }
-      
-    }
+        public abstract void pay(); {}
 }

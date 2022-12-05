@@ -1,16 +1,11 @@
-public class Orange implements ServiceProvider {
-   Orange(){
-   }
+import java.util.Scanner;
 
-   OrangeMobile M;
-   OrangeInternet I;
-   public void createProvider(int option){
-       if(option == 1){
-           M = new OrangeMobile();
-       }
-       else if(option == 2){
-           I = new OrangeInternet();
-       }
-     
+public abstract class Orange implements ServiceProvider {
+   String name ="service for Orange ";
+
+   public abstract void getname();{
+       System.out.println(name);
    }
+   public abstract void pay() ;{
+     }
 }
