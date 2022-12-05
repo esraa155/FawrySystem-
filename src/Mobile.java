@@ -6,21 +6,25 @@ public class Mobile  implements Service{
     }
     public void createProvider(int option){
         if(option == 1){
-            prov = new WEMobile();					
+            prov = new WEMobile();	
+            prov.getname();
+            prov.pay();				
         }
         else if(option == 2){
             prov = new VodafoneMobile();
+            prov.getname();
+            prov.pay();	
         }
         else if(option == 3){
             prov = new EtisalatMobile();
+            prov.getname();
+            prov.pay();	
         }
         else if(option == 4){
             prov = new OrangeMobile();
+            prov.getname();
+            prov.pay();	
         }
-    }
-    public boolean contains(String name_) {
-        // TODO Auto-generated method stub
-        return false;
     }
 }
 

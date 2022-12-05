@@ -1,22 +1,25 @@
-public class Donation  implements Service{
+public class  Donation  implements Service{
 	DonationProvider Dp;
-	Donation(){
-	    
+	
+	public Donation(){
 	}
 	    public void createProvider(int option){
 	        if(option == 1){
-	            Dp = new NGO();
+	            Dp = (DonationProvider) new NGO();
+				Dp.getname();
+				Dp.pay();
 	        }
 	        else if(option == 2){
-	            Dp = new Hospital();
+	            Dp = (DonationProvider) new Hospital();
+				Dp.getname();
+				Dp.pay();
 	        }
 	        else if(option == 3){
 	            Dp = new School();
+				Dp.getname();
+				Dp.pay();
 	        }
 	      
 	    }
-		public boolean contains(String name_) {
-			// TODO Auto-generated method stub
-			return false;
-		}
+		
 }

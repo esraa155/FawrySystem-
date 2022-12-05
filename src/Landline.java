@@ -6,14 +6,14 @@ public class Landline  implements Service {
     public void createProvider(int option){
         if(option == 1){
             p = new Quarter();
+            p.getname();
+            p.pay();
         }
         else if(option == 2){
             p = new Monthly();
+            p.getname();
+            p.pay();
         }
       
-    }
-    public boolean contains(String name_) {
-        // TODO Auto-generated method stub
-        return false;
     }
 }

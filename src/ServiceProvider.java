@@ -1,7 +1,7 @@
 public interface ServiceProvider {
 
-    void getname();
-
     void pay();
+
+	void getname();
 
 }
