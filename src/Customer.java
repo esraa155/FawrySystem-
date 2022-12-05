@@ -89,8 +89,8 @@ Database.servicesName.add("Mobile");
      Database. servicesName.add("internet");
      Database.servicesName.add("Landline");
      Database. servicesName.add("landline");
-     Database. servicesName.add("Dontion");
-     Database. servicesName.add("dontion");
+     Database. servicesName.add("Donation");
+     Database. servicesName.add("donation");
         System.out.println("Enter Service name you want ");
                                 String name = input.nextLine();
                                 boolean notF = false;
@@ -109,8 +109,9 @@ Database.servicesName.add("Mobile");
 
 
     public void checkDiscount() {
-        //for(String names:Database.discount)
-        	//System.out.println("ServiceDiscount " + names);
+    	for(Special s:Database.discount){
+    	    System.out.println("available Discount in "+s.getCompanyname()+" and percentage "+s.getPerc()*100+"%");
+    	}
     }
 
 

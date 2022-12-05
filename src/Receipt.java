@@ -1,5 +1,3 @@
-import java.io.ObjectInputStream.GetField;
-
 public class Receipt {
     int customerId = 0;
     Payment p;

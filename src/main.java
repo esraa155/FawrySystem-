@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class main {
 
   public static void main(String[] args) {
-    // TODO Auto-generated method stub
 
 	Service mobile = new Mobile();
     Service internet = new Internet();
@@ -28,7 +27,12 @@ public class main {
 		int choose;
 		String s;
 		String d;
-
+		
+		System.out.println("=========================================================");
+		System.out.println("the username of Customer  'esraa'   the password   '123'");
+        System.out.println("the username of admin  'admin'   the password   'admin'");
+        System.out.println("=========================================================");
+        
 		while (true) {
 			System.out.println("Do you want to log in or sign up:");
 			while (true) {
@@ -46,7 +50,7 @@ public class main {
 						System.out.println("Logged In");
 						System.out.println("========================================");
 						while (true) {
-							System.out.println("1/ services \n2/ serach \n3/ checkDiscount \n4/ logout");
+							System.out.println("1/ choose services \n2/ serach of service name \n3/ checkDiscount \n4/ logout");
 							ch = Integer.parseInt(input.nextLine());
 							if (ch == 1) {
 								while (true) {
@@ -67,35 +71,26 @@ public class main {
 										int opt;
 										opt = Integer.parseInt(input.nextLine());
 										Internet Inter = new Internet();
-										mob.createProvider(opt,(Customer) a);
+										Inter.createProvider(opt,(Customer) a);
 									} else if (Option == 3) {
 										System.out.println("1/Quarterly   \n2/ Monthly ");
 										int opt;
 										opt = Integer.parseInt(input.nextLine());
 										Landline land = new Landline();
-										mob.createProvider(opt,(Customer) a);
+										land.createProvider(opt,(Customer) a);
 									} else if (Option == 4) {
 										System.out.println("1/NGO  \n2/Hospital \n3/School ");
 										int opt;
 										opt = Integer.parseInt(input.nextLine());
 										Donation Doan = new Donation();
-										mob.createProvider(opt,(Customer) a);
+										Doan.createProvider(opt,(Customer) a);
 									} else if (Option == 5) {
 										System.out.println("ended services");
+										System.out.println("========================================");
 										break;
 									}
-									System.out.println("you want choice service again ");
-									System.out.println("1/Yes  \n2/NO ");
-									int Op;
-									Op = Integer.parseInt(input.nextLine());
-									Internet Inter = new Internet();
-
-									if (Op == 1) {
-										continue;
-									} else if (Op == 2) {
-										break;
-									}
-
+									System.out.println("========================================");
+									continue;
 								}
 							} else if (ch == 2) {
 									c.search();
@@ -129,11 +124,7 @@ public class main {
 						System.out.println("========================================");
 						choose = Integer.parseInt(input.nextLine());
 							if (choose==1) {
-								System.out.println("enter service name that you are want to add discount in it ");
-								d = input.nextLine();
-								System.out.println("Enter the percentage ");
-								choose = Integer.parseInt(input.nextLine());
-								//Database.discount.add(d,choose);
+							  admin.addDiscount();
 							}
 							else if(choose==2){
 

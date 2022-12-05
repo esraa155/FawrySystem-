@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Admin extends Account {
 
 	String username;
@@ -31,9 +33,15 @@ public class Admin extends Account {
 		return "Logged Out";
 	  }
 
-	    public void addDiscount(String s,double perc) {
-			 discount.add(s,perc);
-		}
+	    public void addDiscount() {
+	        Special d=new Special();
+	        Scanner input = new Scanner(System.in);
+	        System.out.println("Enter Service name");
+	        String s = input.nextLine();
+	        System.out.println("Enter percentage ");
+	        double p = Integer.parseInt(input.nextLine());
+	            d.add(s, p);
+	      }
 	 
 	  
 	}
