@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		Service mobile = new Mobile();
 		Service internet = new Internet();
@@ -24,6 +23,9 @@ public class main {
 		servicesName.add("landline");
 		servicesName.add("Dontion");
 		servicesName.add("dontion");
+
+		Customer Cu = new Customer("esraa@", "esraa", "123", "0111555");
+		Database.customers.add(Cu);
 
 		Account a;
 		Customer c;
@@ -66,6 +68,7 @@ public class main {
 										opt = Integer.parseInt(input.nextLine());
 										Mobile mob = new Mobile();
 										mob.createProvider(opt);
+
 									} else if (Option == 2) {
 										System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
 										int opt;
@@ -88,6 +91,18 @@ public class main {
 										System.out.println("ended services");
 										break;
 									}
+									System.out.println("you want choice service again ");
+									System.out.println("1/Yes  \n2/NO ");
+									int Op;
+									Op = Integer.parseInt(input.nextLine());
+									Internet Inter = new Internet();
+
+									if (Op == 1) {
+										continue;
+									} else if (Op == 2) {
+										break;
+									}
+
 								}
 							} else if (ch == 2) {
 								System.out.println("Enter Service name you want ");
@@ -123,11 +138,18 @@ public class main {
 					if (admin != null) {
 						loggedInCustomer = null;
 						System.out.println("Logged In");
+						System.out.println("1 Add Discount \n2 show list of refund \n3 logout");
 						System.out.println("========================================");
-						System.out.println("Are you want to Logout yes/no");
+						
 						s = input.nextLine();
 						if (loggedInCustomer != null) {
-							if (s.equals("yes")) {
+							if (s.equals("1")) {
+								
+							}
+							else if(s.equals("2")){
+
+							}
+							else if(s.equals("3")){
 								System.out.println(loggedInCustomer.Log_out());
 							}
 						}
@@ -170,6 +192,6 @@ public class main {
 			}
 
 		}
-		
+
 	}
 }

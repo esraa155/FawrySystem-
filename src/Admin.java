@@ -28,7 +28,8 @@ public class Admin extends Account {
 	}	
 	    public String Log_out(){
 	    this.loggedIn = false;
-	    return "Logged out";
+		System.out.println("Logged Out");
+		return "Logged Out";
 	  }
 
 	    public void addDiscount(String s,double perc) {

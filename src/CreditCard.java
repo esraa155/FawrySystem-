@@ -15,6 +15,10 @@ public class CreditCard implements Payment{
         this.cvv = cvv;
     }
 
+    public CreditCard(int i, int j) {
+    }
+
+
     public void setAmount(double amount) {
         this.amount = amount;
     }

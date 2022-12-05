@@ -13,10 +13,10 @@ public class Customer extends Account implements Observer {
     private CreditCard creditcard;
     Scanner input = new Scanner(System.in);
     public Customer() {
-        email = "";
-        username = "";
-        password = "";
-        phonenumber = "";
+        email = "esraa@";
+        username = "esraa";
+        password = "esraa";
+        phonenumber = "1123";
         amount = 1000.0;
         creditcard = null;
     }
@@ -30,16 +30,13 @@ public class Customer extends Account implements Observer {
 		this.loggedIn = loggedIn;
 		this.creditcard = creditcard;
 	}
-
-	//    public Customer(String email, String username, String password, String phonenumber) {
-//        this.email = email;
-//        this.username = username;
-//        this.password = password;
-//        this.phonenumber = phonenumber;
-//        this.amount = 1000.0;
-//    }
-
-
+	   public Customer(String email, String username, String password, String phonenumber) {
+       this.email = email;
+        this.username = username;
+        this.password = password;
+       this.phonenumber = phonenumber;
+       this.amount = 1000.0;
+   }
     public Account log_in(String username, String password) {
         for (Customer customer : Database.customers) {
             if (customer.username.equals(username)) {
