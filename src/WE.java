@@ -4,5 +4,5 @@ public abstract class WE implements ServiceProvider {
 
         public abstract void getname();{
         }
-        public abstract void pay(); {}
+        public abstract void pay(Customer c); {}
 }
