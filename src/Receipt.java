@@ -12,6 +12,7 @@ public class Receipt {
         this.serivcename = serivcename;
         this.amount = amount;
     }
+    
 
     public int getCutomer() {
         return customerId;

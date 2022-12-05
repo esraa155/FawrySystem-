@@ -7,6 +7,7 @@ public class School implements DonationProvider {
     System.out.println(name);
   }
 
+  
   public void pay(Customer c ) {
       
       Scanner input = new Scanner(System.in);

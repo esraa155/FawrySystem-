@@ -9,6 +9,7 @@ public class OrangeMobile extends Orange {
 
     public void pay(Customer c ) {
         
+    	
         Scanner input = new Scanner(System.in);
         Payment pay;
         int ch;

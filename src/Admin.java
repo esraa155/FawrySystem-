@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Admin extends Account {
 
+	
 	String username;
 	String password;
 	String type;

@@ -8,6 +8,7 @@ public class Quarter extends Plan {
         System.out.println(name);
     }
  public void pay(Customer c ) {
+	 
         
         Scanner input = new Scanner(System.in);
         Payment pay;

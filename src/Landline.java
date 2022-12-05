@@ -8,6 +8,7 @@ public class Landline  implements Service {
             p = new Quarter();
             p.getname();
             p.pay(c);
+            
         }
         else if(option == 2){
             p = new Monthly();

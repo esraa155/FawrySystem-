@@ -3,6 +3,7 @@ public class CreditCard implements Payment{
     private String number;
     private String cvv;
 
+    
     public CreditCard(double amount, String number, String cvv) {
         this.amount = amount;
         this.number = number;

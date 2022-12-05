@@ -20,6 +20,7 @@ public class NGO implements DonationProvider {
                 System.out.println("you have Discount" + s.getPerc()*100+" %\n");
               }
             }
+            
             System.out.print("How want you will paymant ?\n1-creditcard\n2-wallet\n3-cach\n4-Exit\n");
             ch = Integer.parseInt(input.nextLine());
             if (ch == 1) {

@@ -6,6 +6,7 @@ public class Special extends Discount {
 
   public Special() {
   }
+  
     public Special(String n, double perc2) {
     this.companyname=n;
     this.perc=perc2;

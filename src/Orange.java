@@ -7,5 +7,6 @@ public abstract class Orange implements ServiceProvider {
        System.out.println(name);
    }
    public abstract void pay(Customer c) ;{
+	   
      }
 }

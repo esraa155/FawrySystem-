@@ -20,6 +20,7 @@ public class Monthly extends Plan {
             amount= s.pdisco_calcuay(amount,s.getPerc());
             System.out.println("you have Discount" + s.getPerc()*100+" %\n");
           }
+          
         }
         System.out.print("How want you will paymant ?\n1-creditcard\n2-wallet\n3-cach\n4-Exit\n");
         ch = Integer.parseInt(input.nextLine());

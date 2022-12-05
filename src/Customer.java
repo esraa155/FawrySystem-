@@ -20,7 +20,7 @@ public class Customer extends Account implements Observer {
         amount = 1000.0;
         creditcard = null;
     }
-
+ 
 
 
 	public Customer(String email, String username, String password, String phonenumber, double amount, boolean loggedIn, CreditCard creditcard) {

@@ -21,6 +21,7 @@ public class  Donation  implements Service{
 				Dp.pay(c);
 	        }
 	      
+	        
 	    }
 		
 }

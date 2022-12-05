@@ -1,9 +1,10 @@
 public class Cash implements Payment{
 	 private  double payamount;
-	
+
 		public Cash() {
 		}
 
+		
 	    public void setAmount(double amount) {
 	        this.payamount = amount;
 	    }

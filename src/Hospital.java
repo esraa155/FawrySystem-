@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Hospital implements DonationProvider {
    String name ="service for Hosbtel ";
-
+  
    public void getname(){
        System.out.println(name);
    }

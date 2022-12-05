@@ -6,6 +6,7 @@ public class VodafoneInternet extends Vodafone {
     public void getname(){
         System.out.println(name);
     }
+    
     public void pay(Customer c ) {
         
         Scanner input = new Scanner(System.in);

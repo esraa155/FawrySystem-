@@ -7,7 +7,7 @@ public class EtisalatInternet extends Etisalat{
         System.out.println(name);
     }
     public void pay(Customer c ) {
-        
+         
         Scanner input = new Scanner(System.in);
         Payment pay;
         int ch;

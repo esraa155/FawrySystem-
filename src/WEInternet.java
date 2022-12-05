@@ -7,7 +7,7 @@ public class WEInternet extends WE{
         System.out.println(name);
     }
     public void pay(Customer c ) {
-        
+         
         Scanner input = new Scanner(System.in);
         Payment pay;
         int ch;
@@ -18,6 +18,7 @@ public class WEInternet extends WE{
           if(n.equals(s.getCompanyname()) ||a.equals(s.getCompanyname()) ){
             amount= s.pdisco_calcuay(amount,s.getPerc());
             System.out.println("you have Discount" + s.getPerc()*100+" %\n");
+            break;
           }
         }
         System.out.print("How want you will paymant ?\n1-creditcard\n2-wallet\n3-cach\n4-Exit\n");

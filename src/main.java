@@ -13,6 +13,7 @@ public class main {
     Database.services.add(internet);
     Database.services.add(landline);
     Database.services.add(donation);
+    
   Form f = new Form();
     ArrayList<String> servicesName = new ArrayList<String>();
     Customer Cu = new Customer("esraa@", "esraa", "123", "0111555");
@@ -28,11 +29,12 @@ public class main {
     String s;
     String d;
     
-    System.out.println("=========================================================");
-    System.out.println("the username of Customer  'esraa'   the password   '123'");
-        System.out.println("the username of admin  'admin'   the password   'admin'");
-        System.out.println("=========================================================");
-        
+         System.out.println("==========================================================================================");
+         System.out.println("the username of Customer  'esraa'   the password   '123' Defult and can Sing up new customer");
+         System.out.println("Customrer can search Name service Like 'Mobile','Internet' ");
+         System.out.println("the username of admin  'admin'   the password   'admin'");
+         System.out.println("Admin can Add Discount by Name service provider Like 'WEMobile','VodafonInternet' ");
+         System.out.println("=====================================================================================");
     while (true) {
       System.out.println("Do you want to log in or sign up:");
       while (true) {

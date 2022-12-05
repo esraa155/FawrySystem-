@@ -9,6 +9,7 @@ public class Wallet implements Payment{
 		public double getAmount() {
 			return amount;
 		}
+		
 
 		public void pay(double customeramount,double paymentAmount) {
 			 System.out.println("Paying " + paymentAmount + " using Wallet.");

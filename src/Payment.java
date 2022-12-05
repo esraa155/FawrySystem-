@@ -4,5 +4,6 @@ public interface  Payment {
     public void setAmount(double amount);
     
     public  double getAmount();
+    
 
 }

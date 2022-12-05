@@ -4,6 +4,8 @@ public class Internet implements Service
     ServiceProvider prov;
     Internet(){
     }
+    
+    
     public void createProvider(int option,Customer c){
         if(option == 1){
             prov = new WEInternet();
