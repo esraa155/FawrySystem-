@@ -1,4 +1,5 @@
-
-public class Hospital extends Donation {
-
+public class Hospital extends DonationProvider {
+    Hospital(){
+        
+    }
 }

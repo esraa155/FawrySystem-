@@ -1,4 +1,5 @@
-
-public class NGO extends Donation {
-
+public class NGO extends DonationProvider {
+    NGO(){
+        
+    }
 }
