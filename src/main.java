@@ -29,6 +29,7 @@ public class main {
 	Scanner input = new Scanner(System.in);
 	int choice;
 	int ch;
+	int choose;
 	String s;
 	
 	while (true) {
@@ -122,12 +123,22 @@ public class main {
 					loggedInCustomer = null;
 					System.out.println("Logged In");
 					System.out.println("========================================");
-					System.out.println("Are you want to Logout yes/no");
-					s = input.nextLine();
-					if (loggedInCustomer != null) {
-				        if (s.equals("yes")) {
-							System.out.println(loggedInCustomer.Log_out());
-						} 
+					while(true){
+						System.out.println("1/ addDiscount \n2/ logout");
+						 choose = Integer.parseInt(input.nextLine());
+						  if (choose == 1) 
+						  {
+							  ch = Integer.parseInt(input.nextLine());
+							  s = input.nextLine();
+							  m.addDiscount(s,ch); 
+						  }
+						  else if(choose==2)
+						  {
+							  System.out.println(a.Log_out());
+								break;  
+						  }
+						  System.out.println("========================================");
+							continue;
 					}
 					
 				} else {

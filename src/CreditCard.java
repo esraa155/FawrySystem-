@@ -1,4 +1,4 @@
-public class CreditCard extends Payment{
+public class CreditCard implements Payment{
 	private double amount;
     private String number;
     private String cvv;

@@ -32,7 +32,7 @@ public class Admin extends Account {
 	  }
 
 	    public void addDiscount(String s,double perc) {
-			 discount.add("we",perc);
+			 discount.add(s,perc);
 		}
 	 
 	  
