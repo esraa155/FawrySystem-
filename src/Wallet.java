@@ -2,7 +2,6 @@ public class Wallet extends Payment{
 	private double amount;
 	
 	Wallet(){
-		this.amount=100000;
 	}
 	public void setAmount(double amount) {
 		this.amount = amount;
@@ -12,9 +11,9 @@ public class Wallet extends Payment{
 			return amount;
 		}
 
-		public void pay(double paymentAmount) {
+		public void pay(double customeramount,double paymentAmount) {
 			 System.out.println("Paying " + paymentAmount + " using Wallet.");
-	         setAmount(getAmount() - paymentAmount);
-				System.out.print("amount :" +getAmount()+"\n");
+			 customeramount -= paymentAmount;
+			 System.out.print("amount :" +customeramount+"\n");
 		}
 }

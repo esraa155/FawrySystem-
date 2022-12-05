@@ -1,22 +1,21 @@
 public class Cash extends Payment{
-	 private double amount;
-
-		public Cash(double amount) {
-			this.amount = amount;
+	 private  double payamount;
+	
+		public Cash() {
 		}
 
 	    public void setAmount(double amount) {
-	        this.amount = amount;
+	        this.payamount = amount;
 	    }
 
 	    public double getAmount() {
-	        return amount;
+	        return payamount;
 	    }
 
-	    public void pay(double paymentAmount) {
-	        System.out.println("Paying " + paymentAmount + " using Cash.");
-	        setAmount(getAmount() - paymentAmount);
-	        System.out.print("amount :" + getAmount() + "\n");
+	    public void pay(double customeramount,double payamount) {
+	        System.out.println("Paying " + payamount + " using Cash.");
+		   customeramount -= payamount;
+	        System.out.print("amount :" + customeramount + "\n");
 
 	    }
 }
