@@ -8,9 +8,17 @@ public class main {
 	Form f=new Form();
 	ArrayList<String> servicesName  = new ArrayList<String>();
    Database. servicesName.add("Internet");
+   Database. servicesName.add("internet");
+
 	Database.servicesName.add("Mobile");
+	Database.servicesName.add("mobile");
+
 	Database.servicesName.add("Landline");
+	Database.servicesName.add("landline");
+
 	Database.servicesName.add("Donation");
+	Database.servicesName.add("donation");
+
 
 	Account a;
 	Customer c=new Customer();
