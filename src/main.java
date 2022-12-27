@@ -22,7 +22,8 @@ public class main {
     Account a;
     Customer c=new Customer();
     Customer loggedInCustomer = new Customer();
-    Admin admin = Admin.getInstance();
+    AuthenticationManager authenticate = AuthenticationManager.getInstance();
+    Customercontroller customercontroller = new Customercontroller();
     Scanner input = new Scanner(System.in);
     int choice;
     int ch;
@@ -51,7 +52,7 @@ public class main {
           a = new Customer();
           loggedInCustomer = (Customer) a.log_in(username, password);
           if (loggedInCustomer != null) {
-            admin = null;
+        	  authenticate = null;
             System.out.println("Logged In");
             System.out.println("========================================");
             while (true) {
@@ -71,7 +72,7 @@ public class main {
                       Service mob = new Mobile();
                       mob.createProvider(opt);
                       paycontrol pay=new paycontrol();
-                      pay.payform((Customer) a,mob);
+                      pay.payform(c,mob);
                     } else if (Option == 2) {
                       System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
                       int opt;
@@ -79,7 +80,7 @@ public class main {
                       Service Inter = new Internet();
                       Inter.createProvider(opt);
                       paycontrol pay=new paycontrol();
-                      pay.payform((Customer) a,Inter);
+                      pay.payform(c,Inter);
                   } else if (Option == 3) {
                 	  System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
                       int opt;
@@ -87,7 +88,7 @@ public class main {
                       Service Inter = new Internet();
                       Inter.createProvider(opt);
                       paycontrol pay=new paycontrol();
-                      pay.payform((Customer) a,Inter);
+                      pay.payform(c,Inter);
                   } else if (Option == 4) {
                 	  System.out.println("1/NGO  \n2/Hospital \n3/School ");
                       int opt;
@@ -95,7 +96,7 @@ public class main {
                       Service Doan = new Donation();
                       Doan.createProvider(opt);
                       paycontrol pay=new paycontrol();
-                      pay.payform((Customer) a,Doan);
+                      pay.payform(c,Doan);
                   } else if (Option == 5) {
                     System.out.println("ended services");
                     System.out.println("========================================");
@@ -105,17 +106,17 @@ public class main {
                   continue;
                 }
               } else if (ch == 2) {
-                  c.search();
+            	  customercontroller.search();
               }
               else if(ch==3)
               {
-                c.checkDiscount();
+            	  customercontroller.checkDiscount();
               }
               else if (ch == 4) {
-                c.RequestRefund();
+            	  customercontroller.requestRefund(c.Id);
               }
               else if (ch == 5) {
-                   admin.print(c.Id);
+            	  authenticate.print(c.Id);
                 }
               else if (ch == 6) {
                   System.out.println(loggedInCustomer.Log_out());
@@ -131,10 +132,10 @@ public class main {
           String username = input.nextLine();
           System.out.println("Password : ");
           String password = input.nextLine();
-          a = Admin.getInstance();
-          admin = (Admin) a.log_in(username, password);
-          if (admin != null) {
-            loggedInCustomer = null;
+          a = authenticate.getInstance();
+          authenticate = (AuthenticationManager) a.log_in(username, password);
+          if (authenticate != null) {
+        	  loggedInCustomer = null;
             System.out.println("Logged In");
             while(true)
             {
@@ -142,13 +143,13 @@ public class main {
             System.out.println("========================================");
             choose = Integer.parseInt(input.nextLine());
               if (choose==1) {
-                admin.addDiscount();
+            	  authenticate.addDiscount();
               }
               else if(choose==2){
-            	  admin.listRefunds();
+            	  authenticate.listRefunds();
               }
               else if(choose==3){
-                System.out.println(a.Log_out());
+                System.out.println(authenticate.Log_out());
                 break;
               }
               System.out.println("========================================");
@@ -170,7 +171,6 @@ public class main {
           String email = input.nextLine();
           System.out.println("Phone Number : ");
           String phoneNumber = input.nextLine();
-          c = new Customer();
           loggedInCustomer = c.sign_up(email, username, password, phoneNumber);
           if (loggedInCustomer != null) {
             System.out.println("Signed Up");
@@ -193,4 +193,8 @@ public class main {
     }
 
   }
+  
+  private static void paycontrol(Customer a, Service doan) {
+  }
+  
 }

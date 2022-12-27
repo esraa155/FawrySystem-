@@ -52,7 +52,7 @@ public class paycontrol{
     
           
         }
-        Receipt R=new Receipt( c.getAmount(), c.Id,c.tr.size());
+        Receipt R=new Receipt( c.getAmount(), c.getID(),c.tr.size());
         Database.tr.add(R);
         c.tr.add(R);
       }
