@@ -4,6 +4,7 @@ public class Customercontroller  implements Observer {
     
 	Scanner input = new Scanner(System.in);
 	Customer customer = new Customer();
+	AuthenticationManager authenticationManager;
 	
 	public Customercontroller() {}
 	
@@ -44,7 +45,7 @@ public class Customercontroller  implements Observer {
 	      
 	        public void requestRefund(int id) {
 	    	Scanner myObj = new Scanner(System.in);
-	        String code, name;
+	   	    String code, name;
 	        double price;
 	        System.out.println("Enter Name of service:");
 	        name = myObj.next();
@@ -55,7 +56,31 @@ public class Customercontroller  implements Observer {
 	        Receipt R = new Receipt(price, customer.getID(),id,name,code);
 	        Database.refund.add(R);
 	    }
-
-	    
-	 
+	        
+	     
+	        public void print(int id)
+	        {
+	        	for(int i =0; i<authenticationManager.accepted.size(); i++)
+        	{
+	        		if(id==authenticationManager.accepted.get(i).username)
+	        		{
+	        			System.out.println(authenticationManager.accepted.get(i).getServiceStatus()+"  ");
+	        			System.out.println(authenticationManager.accepted.get(i).getServiceName()+"\n");
+	        			System.out.println("your new amount is : "+ authenticationManager.newamount+"\n");
+	        		}
+	        	}
+	        	for(int i =0; i<authenticationManager.refused.size(); i++)
+	        	{
+	        		if(id==authenticationManager.refused.get(i).username)
+	        		{
+	        			System.out.println(authenticationManager.refused.get(i).getServiceStatus()+"  ");
+	        			System.out.println(authenticationManager.refused.get(i).getServiceName());
+	        		}
+	        	}
+	        }
+	        
+	     public double returnamount(double amount)
+         {
+        	 return customer.getAmount() + amount ;
+         }
 }

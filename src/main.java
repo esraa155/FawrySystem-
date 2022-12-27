@@ -116,7 +116,7 @@ public class main {
             	  customercontroller.requestRefund(c.Id);
               }
               else if (ch == 5) {
-            	  authenticate.print(c.Id);
+            	  customercontroller.print(c.Id);
                 }
               else if (ch == 6) {
                   System.out.println(loggedInCustomer.Log_out());

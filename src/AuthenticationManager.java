@@ -9,6 +9,8 @@ public class AuthenticationManager extends Account {
     protected ArrayList<Receipt> accepted=new ArrayList<Receipt>();
     protected ArrayList<Receipt> refused=new ArrayList<Receipt>();
     public static AuthenticationManager instance = new AuthenticationManager();
+    Customercontroller customercontroller = new Customercontroller();
+    protected double newamount;
     
     public static AuthenticationManager getInstance(){
 		instance.admin.setusername("admin");
@@ -53,46 +55,20 @@ public class AuthenticationManager extends Account {
               System.out.println(Database.refund.get(i).getServiceCode());
               System.out.println("1-Accept");
               System.out.println("2-Refuse");
-              System.out.println("3-Ignore");
               int choice = Obj.nextInt();
               switch (choice) {
                   case 1:
                   Database.refund.get(i).setServiceStatus("Accepted");
                       accepted.add(Database.refund.get(i));
                       Database.refund.remove(i);
+                      newamount = customercontroller.returnamount(Database.refund.get(i).servicePrice);
                       break;
                   case 2:
                   Database.refund.get(i).setServiceStatus("Refused");
                       refused.add(Database.refund.get(i));
                       Database.refund.remove(i);
                       break;
-                  case 3:
-                  Database.refund.get(i).setServiceStatus("Ignored");
-                      Receipt temp = Database.refund.get(i);
-                      Database.refund.remove(i);
-                      Database.refund.add(temp);
-
-                      break;
               }
           }
       }
-        public void print(int id)
-        {
-        	for(int i =0; i<accepted.size(); i++)
-        	{
-        		if(id==accepted.get(i).userNum)
-        		{
-        			System.out.println(accepted.get(i).getServiceStatus()+"  ");
-        			System.out.println(accepted.get(i).getServiceName()+"\n");
-        		}
-        	}
-        	for(int i =0; i<refused.size(); i++)
-        	{
-        		if(id==refused.get(i).userNum)
-        		{
-        			System.out.println(refused.get(i).getServiceStatus()+"  ");
-        			System.out.println(refused.get(i).getServiceName());
-        		}
-        	}
-        }
 }

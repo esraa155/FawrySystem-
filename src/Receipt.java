@@ -1,10 +1,17 @@
 public class Receipt {
 
     Customer c=new Customer();
-    public Receipt(double d,int username,int customerReceiptId,String serviceName,String serviceCode) {
+    private String serviceName;
+    private int customerReceiptId;
+    protected double servicePrice;
+    private String serviceStatus;
+    private String serviceCode;
+    int username;
+    public int userNumId;
+    public Receipt(double servicePrice,int username,int customerReceiptId,String serviceName,String serviceCode) {
 
-        this.servicePrice=d;
-        this.userNum=username;
+        this.servicePrice=servicePrice;
+        this.username=username;
         this.customerReceiptId=customerReceiptId;
         this.serviceName=serviceName;
         this.serviceCode=serviceCode;
@@ -13,19 +20,11 @@ public class Receipt {
     public Receipt(double d,int username,int customerReceiptId) {
 
         this.servicePrice=d;
-        this.userNum=username;
+        this.username=username;
         this.customerReceiptId=customerReceiptId;
         
-    }
-        private String serviceName;
-        private int customerReceiptId;
-        private double servicePrice;
-        private String serviceStatus;
-        private String serviceCode;
+      }
 
-        int userNum;
-
-        public Integer userNumId;
         public String getServiceName() {
             return serviceName;
         }
