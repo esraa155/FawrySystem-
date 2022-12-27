@@ -1,11 +1,21 @@
 public class Receipt {
 
     Customer c=new Customer();
+    public Receipt(double d,int username,int customerReceiptId,String serviceName,String serviceCode) {
+
+        this.servicePrice=d;
+        this.userNum=username;
+        this.customerReceiptId=customerReceiptId;
+        this.serviceName=serviceName;
+        this.serviceCode=serviceCode;
+
+    }
     public Receipt(double d,int username,int customerReceiptId) {
 
         this.servicePrice=d;
         this.userNum=username;
         this.customerReceiptId=customerReceiptId;
+        
     }
         private String serviceName;
         private int customerReceiptId;

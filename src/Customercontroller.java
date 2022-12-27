@@ -41,7 +41,7 @@ public class Customercontroller  implements Observer {
 	    	}
 	    }
 	    
-	        @Override
+	      
 	        public void requestRefund(int id) {
 	    	Scanner myObj = new Scanner(System.in);
 	        String code, name;
@@ -52,7 +52,7 @@ public class Customercontroller  implements Observer {
 	        code = myObj.next();
 	        System.out.println("Enter price odf service:");
 	        price = myObj.nextDouble();
-	        Receipt R = new Receipt(price, customer.getID(),id);
+	        Receipt R = new Receipt(price, customer.getID(),id,name,code);
 	        Database.refund.add(R);
 	    }
 
