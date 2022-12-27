@@ -5,7 +5,7 @@ public class main {
 
   public static void main(String[] args) {
 
-  Service mobile = new Mobile();
+    Service mobile = new Mobile();
     Service internet = new Internet();
     Service landline = new Landline();
     Service donation = new Donation();
@@ -13,7 +13,7 @@ public class main {
     Database.services.add(internet);
     Database.services.add(landline);
     Database.services.add(donation);
-  Form f = new Form();
+    Form f = new Form();
     ArrayList<String> servicesName = new ArrayList<String>();
     Customer Cu = new Customer("esraa@", "esraa", "123", "0111555");
     Customer Cust = new Customer("ibrahim@", "ibrahim", "12345", "0112345");
@@ -65,29 +65,37 @@ public class main {
                   Option = Integer.parseInt(input.nextLine());
                   f.createService(Option);
                   if (Option == 1) {
-                    System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
-                    int opt;
-                    opt = Integer.parseInt(input.nextLine());
-                    Mobile mob = new Mobile();
-                    mob.createProvider(opt,(Customer) a);
+                	  System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
+                      int opt;
+                      opt = Integer.parseInt(input.nextLine());
+                      Service mob = new Mobile();
+                      mob.createProvider(opt);
+                      paycontrol pay=new paycontrol();
+                      pay.payform((Customer) a,mob);
                     } else if (Option == 2) {
-                    System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
-                    int opt;
-                    opt = Integer.parseInt(input.nextLine());
-                    Internet Inter = new Internet();
-                    Inter.createProvider(opt,(Customer) a);
+                      System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
+                      int opt;
+                      opt = Integer.parseInt(input.nextLine());
+                      Service Inter = new Internet();
+                      Inter.createProvider(opt);
+                      paycontrol pay=new paycontrol();
+                      pay.payform((Customer) a,Inter);
                   } else if (Option == 3) {
-                    System.out.println("1/Quarterly   \n2/ Monthly ");
-                    int opt;
-                    opt = Integer.parseInt(input.nextLine());
-                    Landline land = new Landline();
-                    land.createProvider(opt,(Customer) a);
+                	  System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
+                      int opt;
+                      opt = Integer.parseInt(input.nextLine());
+                      Service Inter = new Internet();
+                      Inter.createProvider(opt);
+                      paycontrol pay=new paycontrol();
+                      pay.payform((Customer) a,Inter);
                   } else if (Option == 4) {
-                    System.out.println("1/NGO  \n2/Hospital \n3/School ");
-                    int opt;
-                    opt = Integer.parseInt(input.nextLine());
-                    Donation Doan = new Donation();
-                    Doan.createProvider(opt,(Customer) a);
+                	  System.out.println("1/NGO  \n2/Hospital \n3/School ");
+                      int opt;
+                      opt = Integer.parseInt(input.nextLine());
+                      Service Doan = new Donation();
+                      Doan.createProvider(opt);
+                      paycontrol pay=new paycontrol();
+                      pay.payform((Customer) a,Doan);
                   } else if (Option == 5) {
                     System.out.println("ended services");
                     System.out.println("========================================");

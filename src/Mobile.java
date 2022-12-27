@@ -1,31 +1,31 @@
 public class Mobile  implements Service{
 	
-    ServiceProvider prov;
+	ServiceProvider prov;
+    String name ;
     Mobile(){
 
     }
-    public void createProvider(int option,Customer c){
+    public void createProvider(int option){
         if(option == 1){
             prov = new WEMobile();	
-            prov.getname();
-            prov.pay(c);				
+            			
         }
         else if(option == 2){
             prov = new VodafoneMobile();
-            prov.getname();
-            prov.pay(c);	
+           	
         }
         else if(option == 3){
             prov = new EtisalatMobile();
-            prov.getname();
-            prov.pay(c);	
+         	
         }
         
         else if(option == 4){
             prov = new OrangeMobile();
-            prov.getname();
-            prov.pay(c);	
         }
+        name = prov.getname();
+    }
+    public String getname() {
+        return name;
     }
 }
 

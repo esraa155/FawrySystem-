@@ -1,8 +1,5 @@
 public interface DonationProvider {
 
-    public  void getname(); 
+    public  String getname(); 
 
-    
-    
-    public void pay(Customer c);
 }

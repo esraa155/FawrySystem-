@@ -1,7 +1,5 @@
 public abstract class Vodafone implements ServiceProvider {
+	
+	public abstract String getname();{ }
     
-    public abstract void getname();{ }
-    public abstract void pay(Customer c); {}
-    
-       
 }

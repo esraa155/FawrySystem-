@@ -1,20 +1,23 @@
 public class Landline  implements Service {
-    Plan p;
+	
+	Plan p;
+    String name;
     Landline(){
        
     }
-    public void createProvider(int option,Customer c){
+    public void createProvider(int option){
         if(option == 1){
             p = new Quarter();
-            p.getname();
-            p.pay(c);
+         
             
         }
         else if(option == 2){
             p = new Monthly();
-            p.getname();
-            p.pay(c);
         }
-      
+      name = p.getname();
+    }
+    @Override
+    public String getname() {
+       return name;
     }
 }

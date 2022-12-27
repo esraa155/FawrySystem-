@@ -1,5 +1,6 @@
 public interface Service {
 
-	public void createProvider(int option,Customer c);
+	public void createProvider(int option);
+	public String getname();
 	
 }
