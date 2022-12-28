@@ -21,8 +21,10 @@ public class main {
     String d;
     
     System.out.println("=========================================================================================");
-    System.out.println("the username of defult Customer  'ibrahim'   the password   '12345'");
-    System.out.println("the username of defult Customer  'esraa'   the password   '123'");
+    System.out.println("the username of deafult Customer  'ibrahim'   the password   '12345'");
+    System.out.println("the username of default Customer  'esraa'   the password   '123'");
+    System.out.println("||>>>They have default money because they are default customers ");
+    System.out.println("and any other customer will enter the amount of money he wants to store in his wallet.");
     System.out.println("customer can search of services name like 'Mobile' & 'Internet'");
     System.out.println("the username of admin  'admin'   the password   'admin'");
     System.out.println("admin can add discount by name of services providers like 'WEMobile' & 'OrangeInternet'");
