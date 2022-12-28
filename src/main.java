@@ -4,17 +4,6 @@ import java.util.ArrayList;
 public class main {
 
   public static void main(String[] args) {
-
-    Service mobile = new Mobile();
-    Service internet = new Internet();
-    Service landline = new Landline();
-    Service donation = new Donation();
-    Database.services.add(mobile);
-    Database.services.add(internet);
-    Database.services.add(landline);
-    Database.services.add(donation);
-    Form f = new Form();
-    ArrayList<String> servicesName = new ArrayList<String>();
     Customer Cu = new Customer("esraa@", "esraa", "123", "0111555");
     Customer Cust = new Customer("ibrahim@", "ibrahim", "12345", "0112345");
     Database.customers.add(Cust);
@@ -64,7 +53,6 @@ public class main {
                       "1/ Mobile \n2/ Internet \n3/ Landline \n4/ Donation \n5/ exit for services");
                   int Option;
                   Option = Integer.parseInt(input.nextLine());
-                  f.createService(Option);
                   if (Option == 1) {
                 	  System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
                       int opt;
@@ -72,7 +60,7 @@ public class main {
                       Service mob = new Mobile();
                       mob.createProvider(opt);
                       paycontrol pay=new paycontrol();
-                      pay.payform(c,mob);
+                      pay.payform(loggedInCustomer,mob);
                     } else if (Option == 2) {
                       System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
                       int opt;
@@ -80,7 +68,7 @@ public class main {
                       Service Inter = new Internet();
                       Inter.createProvider(opt);
                       paycontrol pay=new paycontrol();
-                      pay.payform(c,Inter);
+                      pay.payform(loggedInCustomer,Inter);
                   } else if (Option == 3) {
                 	  System.out.println("1/ WE   \n2/ Vodafone \n3/ Etisalat \n4/ Orange");
                       int opt;
@@ -88,7 +76,7 @@ public class main {
                       Service Inter = new Internet();
                       Inter.createProvider(opt);
                       paycontrol pay=new paycontrol();
-                      pay.payform(c,Inter);
+                      pay.payform(loggedInCustomer,Inter);
                   } else if (Option == 4) {
                 	  System.out.println("1/NGO  \n2/Hospital \n3/School ");
                       int opt;
@@ -96,7 +84,7 @@ public class main {
                       Service Doan = new Donation();
                       Doan.createProvider(opt);
                       paycontrol pay=new paycontrol();
-                      pay.payform(c,Doan);
+                      pay.payform(loggedInCustomer,Doan);
                   } else if (Option == 5) {
                     System.out.println("ended services");
                     System.out.println("========================================");
@@ -171,7 +159,9 @@ public class main {
           String email = input.nextLine();
           System.out.println("Phone Number : ");
           String phoneNumber = input.nextLine();
-          loggedInCustomer = c.sign_up(email, username, password, phoneNumber);
+          System.out.println("Amount you have : ");
+          double amount =Double.parseDouble(input.nextLine()) ;
+          loggedInCustomer = c.sign_up(email, username, password, phoneNumber,amount);
           if (loggedInCustomer != null) {
             System.out.println("Signed Up");
             System.out.println("========================================");

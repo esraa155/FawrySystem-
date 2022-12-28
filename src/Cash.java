@@ -1,23 +1,33 @@
 public class Cash implements Payment{
-	 private  double payamount;
+	 private  double amount;
 
 		public Cash() {
 		}
 
 		
 	    public void setAmount(double amount) {
-	        this.payamount = amount;
+	        this.amount = amount;
 	    }
 
 	    public double getAmount() {
-	        return payamount;
+	        return amount;
 	    }
 
 	    public void pay(double customeramount,double payamount) {
-	        System.out.println("Paying " + payamount + " using Cash.");
-		   customeramount -= payamount;
-	        System.out.print("amount :" + customeramount + "\n");
+	    	if(payamount<0) {
+				 System.out.println("Invalid amount ");
+			}
+			else {
+			 System.out.println("Paying " + payamount + " using Cash.");
+			 if(customeramount<payamount) {
+				 System.out.println("Sorry, You do not have enough money.  ");
+			}
+			else {
+				 customeramount -= payamount;
 
+			 setAmount(customeramount);
+			 System.out.print("amount :" +amount+"\n");}
+		}
 	    }
 
 	

@@ -12,8 +12,19 @@ public class Wallet implements Payment{
 		
 
 		public void pay(double customeramount,double paymentAmount) {
+			if(paymentAmount<0) {
+				 System.out.println("Invalid amount ");
+			}
+			else {
 			 System.out.println("Paying " + paymentAmount + " using Wallet.");
-			 customeramount -= paymentAmount;
-			 System.out.print("amount :" +customeramount+"\n");
+			 if(customeramount<paymentAmount) {
+				 System.out.println("Sorry, You do not have enough money.  ");
+			}
+			else {
+				 customeramount -= paymentAmount;
+
+			 setAmount(customeramount);
+			 System.out.print("amount :" +amount+"\n");}
 		}
+}
 }

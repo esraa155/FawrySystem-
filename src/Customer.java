@@ -10,13 +10,15 @@ public class Customer extends Account {
     private String phonenumber;
     public double amount;
     private boolean loggedIn = false;
+    private boolean frist = true;
+
     private CreditCard creditcard;
     public Customer() {
-        email = "esraa@";
-        username = "esraa";
-        password = "esraa";
-        phonenumber = "1123";
-        amount = 1000.0;
+        email="" ;
+        username ="" ;
+        password = "";
+        phonenumber = "";
+        amount =0;
         creditcard = null;
         Id++;
     }
@@ -40,6 +42,8 @@ public class Customer extends Account {
        this.phonenumber = phonenumber;
        this.amount = 1000.0;
        Id++;
+       loggedIn=true;
+       frist=true;
    }
     public Account log_in(String username, String password) {
         for (Customer customer : Database.customers) {
@@ -66,7 +70,7 @@ public class Customer extends Account {
         return "Error";
     }
 
-    public Customer sign_up(String email, String username, String password, String phonenumber) {
+    public Customer sign_up(String email, String username, String password, String phonenumber,double amount) {
         for (Customer customer : Database.customers) {
             if (customer.username.equals(username)) {
                 System.out.println("This username already found");
@@ -147,6 +151,18 @@ public class Customer extends Account {
 
 	public int getID() {
 		return Id;
+	}
+
+
+
+	public boolean isFrist() {
+		return frist;
+	}
+
+
+
+	public void setFrist(boolean frist) {
+		this.frist = frist;
 	}
 
 

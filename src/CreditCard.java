@@ -31,8 +31,19 @@ public class CreditCard implements Payment{
 
     public void pay(double customeramount,double paymentAmount) {
 
-        System.out.println("Paying " + paymentAmount + " using Credit Card.");
-        customeramount -= paymentAmount;
-        System.out.print("amount :" + customeramount + "\n");
+     	if(paymentAmount<0) {
+			 System.out.println("Invalid amount ");
+		}
+		else {
+		 System.out.println("Paying " + paymentAmount + " using Cridtcard.");
+		 if(customeramount<paymentAmount) {
+			 System.out.println("Sorry, You do not have enough money.  ");
+		}
+		else {
+			 customeramount -= paymentAmount;
+
+		 setAmount(customeramount);
+		 System.out.print("amount :" +amount+"\n");}
+	}
     }
 }
