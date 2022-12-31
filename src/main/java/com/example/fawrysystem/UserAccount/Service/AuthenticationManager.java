@@ -1,26 +1,19 @@
 package com.example.fawrysystem.UserAccount.Service;
 
-import com.example.fawrysystem.Database.Database;
+import com.example.fawrysystem.Database.ReceiptModel;
+import com.example.fawrysystem.Payment.DiscountController;
 import com.example.fawrysystem.Payment.Special;
+import com.example.fawrysystem.Refund.RefundConcrete;
 import com.example.fawrysystem.UserAccount.Model.Admin;
-import com.example.fawrysystem.UserAccount.Model.Customer;
 import com.example.fawrysystem.UserAccount.Model.Receipt;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Scanner;
 
 @Service
 
 public class AuthenticationManager extends Account {
     Admin admin = new Admin();
-    protected ArrayList<Receipt> refundArr = new ArrayList<Receipt>();
-    protected ArrayList<Receipt> accepted = new ArrayList<Receipt>();
-    protected ArrayList<Receipt> refused = new ArrayList<Receipt>();
     public static AuthenticationManager instance = new AuthenticationManager();
-    Customercontroller customercontroller = new Customercontroller();
-    protected double newamount;
-
     public static AuthenticationManager getInstance() {
         instance.admin.setusername("admin");
         instance.admin.setpassword("admin");
@@ -36,22 +29,22 @@ public class AuthenticationManager extends Account {
             }
 
             else {
-                return ("Check Password");
+                return ("Check Password and try again");
             }
         }
-        return ("Check UserName or Password");
+        return ("Check UserName or Password and try again");
     }
 
     public String Log_out(String name) {
         if (admin.isLoggedIn()) {
             this.admin.setloggedIn(false);
-            return ("Logged out");
+            return ("successfully Logged out");
         } else {
-            return ("Wrong logout !!");
+            return ("Wrong logout and try again");
         }
     }
-
     public boolean addDiscount(String s, double p) {
+
         Special d = new Special();
         if (admin.isLoggedIn()) {
             if (d.add(s, p)) {
@@ -65,47 +58,49 @@ public class AuthenticationManager extends Account {
         }
     }
 
-    public Receipt[] printrec() {
+    public Receipt[] printrecadmin() {
         if (admin.isLoggedIn()) {
-            Receipt[] rec = new Receipt[Database.tr.size()];
-            for (int j = 0; j < Database.tr.size(); j++) {
-                rec[j] = Database.tr.get(j);
+            Receipt[] rec = new Receipt[ReceiptModel.tr.size()];
+            for (int j = 0; j < ReceiptModel.tr.size(); j++) {
+                rec[j] = ReceiptModel.tr.get(j);
             }
             return rec;
         }
         return null;
     }
-
     public Receipt[] Refundrec() {
-        if (admin.isLoggedIn()) {
-            Receipt[] rec = new Receipt[Database.tr.size()];
-            for (int j = 0; j < Database.tr.size(); j++) {
-                if (Database.tr.get(j).getStatus() == "Waiting")
-                rec[j] = Database.tr.get(j);
+
+            if (admin.isLoggedIn()) {
+                Receipt[] rec = new Receipt[ReceiptModel.tr.size()];
+                for (int j = 0; j < ReceiptModel.tr.size(); j++) {
+                    if (ReceiptModel.tr.get(j).getStatus() == "Waiting")
+                        rec[j] = ReceiptModel.tr.get(j);
+                }
+                return rec;
             }
-            return rec;
+            return null;
         }
-        return null;
-    }
+
+
 
     public Receipt actionRefunds(String s ,String action,int id ) {
         if (admin.isLoggedIn()){
             Receipt r=new Receipt();
             Customercontroller c1= new Customercontroller();
-            for (int i=0;i<Database.tr.size();i++){
-                if (s.equals(Database.tr.get(i).getUsername()) && id==Database.tr.get(i).getId()&&Database.tr.get(i).getStatus().equals("Waiting")){
+            for (int i=0;i<ReceiptModel.tr.size();i++){
+                if (s.equals(ReceiptModel.tr.get(i).getUsername()) && id==ReceiptModel.tr.get(i).getId()&&ReceiptModel.tr.get(i).getStatus().equals("Waiting")){
                     switch (action) {
                         case "Accept":
-                            r=Database.tr.get(i);
+                            r=ReceiptModel.tr.get(i);
                             r.setStatus("Accept refund");
-                           r.setUserAmount( c1.returnamount(Database.tr.get(i).getServicePrice(), s));
-                            Database.tr.set(i,r);
+                            r.setUserAmount( c1.returnamount(ReceiptModel.tr.get(i).getServicePrice(), s));
+                            ReceiptModel.tr.set(i,r);
                             return r;
                         case "Refuse":
-                            r=Database.tr.get(i);
+                            r=ReceiptModel.tr.get(i);
 
-                            Database.tr.get(i).setStatus("Refuse refund");
-                            Database.tr.set(i,r);
+                            ReceiptModel.tr.get(i).setStatus("Refuse refund");
+                            ReceiptModel.tr.set(i,r);
                             return r;
                     }
 
@@ -115,6 +110,6 @@ public class AuthenticationManager extends Account {
         }
         return null;
 
-                    }
+    }
 
 }

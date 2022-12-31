@@ -30,14 +30,14 @@ public class ControlAdmin {
     public String addDiscount(@RequestParam String Servicename, @RequestParam double Prec) {
 
         if (adminmanger.addDiscount(Servicename, Prec)) {
-            return ("added");
+            return ("successfully added");
         } else {
-            return ("Wrong added");
+            return ("Wrong added and try again");
         }
     }
     @GetMapping("/allreceipt")
     public Receipt[] Getreceipt(){
-        return adminmanger.printrec();
+        return adminmanger.printrecadmin();
     }
     @GetMapping("/Refund")
     public Receipt[] Getrefund(){

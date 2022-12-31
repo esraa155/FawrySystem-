@@ -1,4 +1,9 @@
 package com.example.fawrysystem.UserAccount.Model;
+
+import com.example.fawrysystem.Database.CustomerModel;
+import com.example.fawrysystem.Database.Database;
+import com.example.fawrysystem.Database.ReceiptModel;
+
 public class Receipt {
 
     private String username;
@@ -36,17 +41,6 @@ public class Receipt {
     public void setProvName(String provName) {
         this.provName = provName;
     }
-
-
-    public String getPaymentway() {
-        return paymentway;
-    }
-
-    public void setPaymentway(String paymentway) {
-        this.paymentway = paymentway;
-    }
-
-
 
     public Receipt(double servicePrice,double userAmount,String discount,String username,int customerReceiptId,String serviceName,String provName,String Status,String paymentway) {
  this.Discount=discount;
@@ -102,5 +96,36 @@ public class Receipt {
     @Override
     public String toString() {
         return super.toString();
+    }
+    Admin admin=new Admin();
+
+
+    public Receipt[] printrec(String name) {
+        boolean f = false;
+        for (Customer customer : CustomerModel.customers) {
+            if (customer.getUsername().equals(name)) {
+                int i = CustomerModel.customers.indexOf(customer);
+                if (CustomerModel.customers.get(i).isLoggedIn()) {
+                    f = true;
+                }
+            }
+        }
+        if (f) {
+            int n = 0;
+            for (int j = 0; j < ReceiptModel.tr.size(); j++) {
+                if (name.equals(ReceiptModel.tr.get(j).getUsername()))
+                    n += 1;
+            }
+            Receipt[] rec = new Receipt[n];
+            for (int j = 0; j < ReceiptModel.tr.size(); j++) {
+                if (name.equals(ReceiptModel.tr.get(j).getUsername()))
+                    rec[j] = ReceiptModel.tr.get(j);
+            }
+            return rec;
+
+        } else {
+            Receipt receipt = new Receipt(0, 0, 0 + "", "Error Customer", 0, " ", " ", "", "");
+            return new Receipt[] { receipt };
+        }
     }
 }
