@@ -4,10 +4,9 @@ import com.example.fawrysystem.Database.Database;
 import com.example.fawrysystem.UserAccount.Model.Customer;
 
 public class Special extends Discount{
-    private double perc;
-    Payment pay;
-    Customer c;
     private String companyname;
+    private double perc;
+
 
     public Special() {
     }
@@ -18,9 +17,6 @@ public class Special extends Discount{
     }
 
     public boolean add(String n,double perc){
-        if(perc>1){
-            perc/=100;
-        }
         Special s =new Special(n,perc);
         Database.discount.add(s);
         return true;
@@ -28,6 +24,9 @@ public class Special extends Discount{
 
     @Override
     public double pdisco_calcuay(double amount, double prec) {
+        if(perc>1){
+            perc/=100;
+        }
         amount = amount-(amount*perc);
         return amount;
     }
@@ -36,18 +35,6 @@ public class Special extends Discount{
     }
     public void setPerc(double perc) {
         this.perc = perc;
-    }
-    public Payment getPay() {
-        return pay;
-    }
-    public void setPay(Payment pay) {
-        this.pay = pay;
-    }
-    public Customer getC() {
-        return c;
-    }
-    public void setC(Customer c) {
-        this.c = c;
     }
     public String getCompanyname() {
         return companyname;

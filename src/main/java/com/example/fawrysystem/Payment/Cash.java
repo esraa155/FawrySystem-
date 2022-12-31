@@ -1,7 +1,7 @@
 package com.example.fawrysystem.Payment;
 
-public class Cash implements Payment{
-    private  double amount;
+public class Cash implements Payment {
+    private double amount;
 
     public Cash() {
     }
@@ -15,20 +15,8 @@ public class Cash implements Payment{
         return amount;
     }
 
-    public void pay(double customeramount,double payamount) {
-        if(payamount<0) {
-            System.out.println("Invalid amount ");
-        }
-        else {
-            System.out.println("Paying " + payamount + " using Cash.");
-            if(customeramount<payamount) {
-                System.out.println("Sorry, You do not have enough money.  ");
-            }
-            else {
-                customeramount -= payamount;
-
-                setAmount(customeramount);
-                System.out.print("amount :" +amount+"\n");}
-        }
+    public void pay(double customeramount, double payamount) {
+        customeramount -= payamount;
+        setAmount(customeramount);
     }
 }
