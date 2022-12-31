@@ -50,5 +50,9 @@ public Receipt payment(@RequestParam String name,@PathVariable("sername") String
     public Receipt[] payment(@RequestParam String name) {
         return Customercontroller.printrec(name);
     }
+    @PutMapping("/Addwallet")
+    public String add(@RequestParam String name,@RequestParam double amount){
+      return Customercontroller.addwallet(name, amount);
+    }
 
 }

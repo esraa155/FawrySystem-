@@ -21,10 +21,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
 
-
 @Service
 @Component
-  public class Customercontroller extends Account {
+public class Customercontroller extends Account {
     Scanner input = new Scanner(System.in);
     Customer customer = new Customer();
     AuthenticationManager authenticationManager;
@@ -59,7 +58,8 @@ import java.util.Scanner;
             return ("Wrong password");
         } else if (f == 3) {
             return ("Wrong user name");
-        } else return ("Account Not Exist");
+        } else
+            return ("Account Not Exist");
 
     }
 
@@ -78,7 +78,6 @@ import java.util.Scanner;
         return ("Wrong logout !!");
     }
 
-
     public String sign_up(String email, String username, String password, String phonenumber, double amount) {
         for (Customer customer : Database.customers) {
             if (customer.getUsername().equals(username)) {
@@ -89,6 +88,26 @@ import java.util.Scanner;
         Customer c = new Customer(email, username, password, phonenumber, amount);
         Database.customers.add(c);
         return ("successful sign up");
+    }
+
+    public String addwallet(String name, double amount) {
+        boolean f = false;
+        int i = 0;
+        for (Customer customer : Database.customers) {
+            if (customer.getUsername().equals(name)) {
+                i = Database.customers.indexOf(customer);
+                if (Database.customers.get(i).isLoggedIn()) {
+                    f = true;
+                }
+            }
+        }
+        if (f) {
+            Database.customers.get(i).setAmount(Database.customers.get(i).getAmount() + amount);
+            return ("wallet Amount = " + Database.customers.get(i).getAmount());
+
+        }
+        return ("Wrong !!Check you login ");
+
     }
 
     public String search(String username, String sername) {
@@ -143,7 +162,8 @@ import java.util.Scanner;
                 d[j] = Database.discount.get(j);
             }
             return d;
-        } else return null;
+        } else
+            return null;
 
     }
 
@@ -159,10 +179,10 @@ import java.util.Scanner;
             }
         }
         if (f) {
-            double dis=0;
+            double dis = 0;
             Servicee ser;
             if (sername.equals("Internet")) {
-                ser=new Internet();
+                ser = new Internet();
                 if (prov.equals("WEInternet")) {
                     ser.createProvider(1);
                 } else if (prov.equals("VodafoneInternet")) {
@@ -171,172 +191,174 @@ import java.util.Scanner;
                     ser.createProvider(3);
                 } else if (prov.equals("OrangeInternet")) {
                     ser.createProvider(4);
-                }
-                else {
-                    Receipt receipt = new Receipt(0, 0,0+""," ", 0, " ","error provider name", "", " ");
+                } else {
+                    Receipt receipt = new Receipt(0, 0, 0 + "", " ", 0, " ", "error provider name", "", " ");
                     return receipt;
                 }
 
-        } else if (sername.equals("Mobile")) {
-            ser=new Mobile();
-            if (prov.equals("WEMobile")) {
-                ser.createProvider(1);
-            } else if (prov.equals("VodafoneMobile") ) {
-                ser.createProvider(2);
-            } else if (prov.equals("EtisalatMobile")) {
-                ser.createProvider(3);
-            } else if (prov.equals("OrangeMobile")) {
-                ser.createProvider(4);
-            }
-            else {
-                Receipt receipt = new Receipt(0,0,0+" ", " ", 0, " ","error provider name", "", " ");
-                return receipt;
-            }
-        } else if (sername.equals("Donation")) {
-             ser = new Donation();
-            if (prov.equals("NGO")) {
-                ser.createProvider(1);
-            } else if (prov.equals("Hospital")) {
-                ser.createProvider(2);
+            } else if (sername.equals("Mobile")) {
+                ser = new Mobile();
+                if (prov.equals("WEMobile")) {
+                    ser.createProvider(1);
+                } else if (prov.equals("VodafoneMobile")) {
+                    ser.createProvider(2);
+                } else if (prov.equals("EtisalatMobile")) {
+                    ser.createProvider(3);
+                } else if (prov.equals("OrangeMobile")) {
+                    ser.createProvider(4);
+                } else {
+                    Receipt receipt = new Receipt(0, 0, 0 + " ", " ", 0, " ", "error provider name", "", " ");
+                    return receipt;
+                }
+            } else if (sername.equals("Donation")) {
+                ser = new Donation();
+                if (prov.equals("NGO")) {
+                    ser.createProvider(1);
+                } else if (prov.equals("Hospital")) {
+                    ser.createProvider(2);
 
-            } else if (prov.equals("School") ) {
-                ser.createProvider(3);
-            }else {
-                Receipt receipt = new Receipt(0,0,0+" ","", 0,"","error provider name", "", " ");
-                return receipt;
-            }
-        } else if (sername.equals("Landline")) {
-             ser =new Landline();
-            if (prov.equals( "Quarter")) {
-                ser.createProvider(1);
-            } else if (prov.equals( "Monthly")) {
-                ser.createProvider(2);
-            }
-            else {
-                Receipt receipt = new Receipt(0,0, 0+" "," " ,0, " ","error provider name", "", " ");
+                } else if (prov.equals("School")) {
+                    ser.createProvider(3);
+                } else {
+                    Receipt receipt = new Receipt(0, 0, 0 + " ", "", 0, "", "error provider name", "", " ");
+                    return receipt;
+                }
+            } else if (sername.equals("Landline")) {
+                ser = new Landline();
+                if (prov.equals("Quarter")) {
+                    ser.createProvider(1);
+                } else if (prov.equals("Monthly")) {
+                    ser.createProvider(2);
+                } else {
+                    Receipt receipt = new Receipt(0, 0, 0 + " ", " ", 0, " ", "error provider name", "", " ");
+                    return receipt;
+                }
+
+            } else {
+                Receipt receipt = new Receipt(0, 0, 0 + " ", " ", 0, "error service name ", "", "", " ");
                 return receipt;
             }
 
-        } else {
-            Receipt receipt = new Receipt(0, 0,0+" "," ", 0, "error service name ","", "", " ");
+            if (Database.customers.get(i).isFrist()) {
+                Discount d = new Overall();
+                amount = d.pdisco_calcuay(amount, 10);
+                dis = 10;
+                Database.customers.get(i).setFrist(false);
+            } else {
+                for (Special s : Database.discount) {
+                    if (prov.equals(s.getCompanyname())) {
+                        dis = s.getPerc();
+                        amount = s.pdisco_calcuay(amount, s.getPerc());
+                    }
+                }
+            }
+            if (payway.equals("cridetcard")) {
+                Payment pay;
+                pay = new CreditCard();
+                pay.pay(Database.customers.get(i).getAmount(), amount);
+                Database.customers.get(i).setAmount(pay.getAmount());
+                Customer c = Database.customers.get(i);
+                Database.customers.set(i, c);
+            } else if (payway.equals("Wallet")) {
+                Payment pay;
+                pay = new Wallet();
+                pay.pay(Database.customers.get(i).getAmount(), amount);
+                Database.customers.get(i).setAmount(pay.getAmount());
+                Customer c = Database.customers.get(i);
+                Database.customers.set(i, c);
+            } else if (payway.equals("Cash")) {
+                Payment pay;
+                pay = new Cash();
+                pay.pay(Database.customers.get(i).getAmount(), amount);
+                Database.customers.get(i).setAmount(pay.getAmount());
+                Customer c = Database.customers.get(i);
+                Database.customers.set(i, c);
+            } else {
+                Receipt receipt = new Receipt(0, 0, 0 + "", " ", 0, " ", "", "", "Error");
+                return receipt;
+            }
+            Database.customers.get(i).setIdrec(Database.customers.get(i).getIdrec() + 1);
+            Receipt receipt = new Receipt(amount, Database.customers.get(i).getAmount(), dis + "%",
+                    Database.customers.get(i).getUsername(), Database.customers.get(i).getIdrec(), sername,
+                    ser.getname(), "successful", payway);
+            Database.tr.add(receipt);
             return receipt;
         }
 
-        if (Database.customers.get(i).isFrist()) {
-            Discount d = new Overall();
-            amount = d.pdisco_calcuay(amount, 10);
-            dis=10;
-            Database.customers.get(i).setFrist(false);
-        } else {
-            for (Special s : Database.discount) {
-                if (prov.equals(s.getCompanyname())) {
-                    dis=s.getPerc();
-                    amount = s.pdisco_calcuay(amount, s.getPerc());
+        else {
+            Receipt receipt = new Receipt(0, 0, 0 + "", "Error in Customer", 0, " ", " ", "", "");
+            return receipt;
+        }
+    }
+
+    public Receipt requestRefund(String name, int id) {
+
+        boolean f = false;
+        for (Customer customer : Database.customers) {
+            if (customer.getUsername().equals(name)) {
+                int i = Database.customers.indexOf(customer);
+                if (Database.customers.get(i).isLoggedIn()) {
+                    f = true;
                 }
             }
         }
-        if (payway.equals("cridetcard")) {
-            Payment pay;
-            pay = new CreditCard();
-            pay.pay(Database.customers.get(i).getAmount(), amount);
-            Database.customers.get(i).setAmount(pay.getAmount());
-            Customer c = Database.customers.get(i);
-            Database.customers.set(i, c);
-        } else if (payway.equals("Wallet") ) {
-            Payment pay;
-            pay = new Wallet();
-            pay.pay(Database.customers.get(i).getAmount(), amount);
-            Database.customers.get(i).setAmount(pay.getAmount());
-            Customer c = Database.customers.get(i);
-            Database.customers.set(i, c);
-        } else if (payway.equals("Cash") ) {
-            Payment pay;
-            pay = new Cash();
-            pay.pay(Database.customers.get(i).getAmount(), amount);
-            Database.customers.get(i).setAmount(pay.getAmount());
-            Customer c = Database.customers.get(i);
-            Database.customers.set(i, c);
+        if (f) {
+            for (Receipt r : Database.tr) {
+                if (id == r.getId()) {
+                    r.setStatus("Waiting");
+                    int i = Database.tr.indexOf(r);
+                    Database.tr.set(i, r);
+                    return r;
+                }
+            }
         } else {
-            Receipt receipt = new Receipt(0,0,0+"", " ", 0, " ", "","", "Error");
+            Receipt receipt = new Receipt(0, 0, 0 + "", "Error Customer", 0, " ", " ", "", "");
             return receipt;
         }
-        Database.customers.get(i).setIdrec(Database.customers.get(i).getIdrec() + 1);
-            Receipt receipt = new Receipt(amount,Database.customers.get(i).getAmount(),dis+"%", Database.customers.get(i).getUsername(), Database.customers.get(i).getIdrec(), sername, ser.getname(),"successful", payway);
-        Database.tr.add(receipt);
+
+        Receipt receipt = new Receipt(0, 0, 0 + "", "", 0, " ", " ", "NOT FOUND", "");
         return receipt;
     }
 
-   else{ Receipt receipt = new Receipt(0,0,0+"", "Error in Customer", 0, " ", " ","", "");
-return receipt;}
-   }
-
-   public Receipt requestRefund(String name,int id) {
-
-    boolean f = false;
-    for (Customer customer : Database.customers) {
-        if (customer.getUsername().equals(name)) {
-            int i = Database.customers.indexOf(customer);
-            if (Database.customers.get(i).isLoggedIn()) {
-                f = true;
-            }
-        }
-    }
-    if (f) {
-        for (Receipt r : Database.tr) {
-            if (id == r.getId()) {
-                r.setStatus("Waiting");
-                int i = Database.tr.indexOf(r);
-                Database.tr.set(i, r);
-                return r;
-            }
-        }
-    }else {
-        Receipt receipt = new Receipt(0,0,0+"", "Error Customer", 0, " ", " ","", "");
-        return receipt ;
-    }
-
-
-    Receipt receipt = new Receipt(0,0,0+"", "", 0, " ", " ","NOT FOUND", "");
-    return receipt ;   }
-
-
-   public Receipt [] printrec(String name) {
-    boolean f = false;
-    for (Customer customer : Database.customers) {
-        if (customer.getUsername().equals(name)) {
-            int i = Database.customers.indexOf(customer);
-            if (Database.customers.get(i).isLoggedIn()) {
-                f = true;
-            }
-        }
-    }
-    if (f) {
-            int n=0;
-                for (int j = 0; j < Database.tr.size(); j++) {
-                    if (name.equals(Database.tr.get(j).getUsername()))
-                      n+=1;
+    public Receipt[] printrec(String name) {
+        boolean f = false;
+        for (Customer customer : Database.customers) {
+            if (customer.getUsername().equals(name)) {
+                int i = Database.customers.indexOf(customer);
+                if (Database.customers.get(i).isLoggedIn()) {
+                    f = true;
                 }
+            }
+        }
+        if (f) {
+            int n = 0;
+            for (int j = 0; j < Database.tr.size(); j++) {
+                if (name.equals(Database.tr.get(j).getUsername()))
+                    n += 1;
+            }
             Receipt[] rec = new Receipt[n];
             for (int j = 0; j < Database.tr.size(); j++) {
                 if (name.equals(Database.tr.get(j).getUsername()))
-                rec[j] = Database.tr.get(j);
+                    rec[j] = Database.tr.get(j);
             }
-                return rec;
+            return rec;
 
-        }
-    else {Receipt receipt = new Receipt(0,0,0+"", "Error Customer", 0, " ", " ","", "");
-        return new Receipt[]{receipt};}
-}
-public double returnamount(double amount, String c) {
-    for (int j = 0; j < Database.customers.size(); j++) {
-        if (c.equals(Database.customers.get(j).getUsername())) {
-            Customer a=new Customer();
-            a=Database.customers.get(j);
-            a.setAmount(Database.customers.get(j).getAmount()+amount);
-            Database.customers.set(j,a);
-            return Database.customers.get(j).getAmount();
+        } else {
+            Receipt receipt = new Receipt(0, 0, 0 + "", "Error Customer", 0, " ", " ", "", "");
+            return new Receipt[] { receipt };
         }
     }
-    return 0;
-}
+
+    public double returnamount(double amount, String c) {
+        for (int j = 0; j < Database.customers.size(); j++) {
+            if (c.equals(Database.customers.get(j).getUsername())) {
+                Customer a = new Customer();
+                a = Database.customers.get(j);
+                a.setAmount(Database.customers.get(j).getAmount() + amount);
+                Database.customers.set(j, a);
+                return Database.customers.get(j).getAmount();
+            }
+        }
+        return 0;
+    }
 }
