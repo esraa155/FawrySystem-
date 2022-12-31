@@ -2,10 +2,10 @@ package com.example.fawrysystem.Service;
 
 import com.example.fawrysystem.Service.ServiceProvider.*;
 
-public class Mobile implements Service{
+public class Mobile implements Servicee {
     ServiceProvider prov;
     String name ;
-    Mobile(){
+    public Mobile(){
 
     }
     public void createProvider(int option){
@@ -31,3 +31,4 @@ public class Mobile implements Service{
         return name;
     }
 }
+

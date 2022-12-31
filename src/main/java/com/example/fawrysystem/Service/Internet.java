@@ -2,10 +2,10 @@ package com.example.fawrysystem.Service;
 
 import com.example.fawrysystem.Service.ServiceProvider.*;
 
-public class Internet implements Service{
+public class Internet implements Servicee {
     ServiceProvider prov;
     String name;
-    Internet(){
+    public Internet(){
     }
 
 
@@ -34,3 +34,4 @@ public class Internet implements Service{
     }
 
 }
+

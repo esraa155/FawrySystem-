@@ -3,11 +3,10 @@ package com.example.fawrysystem.Service;
 import com.example.fawrysystem.Service.Plan.Monthly;
 import com.example.fawrysystem.Service.Plan.Plan;
 import com.example.fawrysystem.Service.Plan.Quarter;
-
-public class Landline implements Service{
+public class Landline implements Servicee {
     Plan p;
     String name;
-    Landline(){
+    public Landline(){
 
     }
     public void createProvider(int option){
@@ -26,3 +25,4 @@ public class Landline implements Service{
         return name;
     }
 }
+

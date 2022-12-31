@@ -5,7 +5,7 @@ import com.example.fawrysystem.Service.DonationProvider.Hospital;
 import com.example.fawrysystem.Service.DonationProvider.NGO;
 import com.example.fawrysystem.Service.DonationProvider.School;
 
-public class Donation implements Service{
+public class Donation implements Servicee {
     DonationProvider Dp;
     String name;
 
