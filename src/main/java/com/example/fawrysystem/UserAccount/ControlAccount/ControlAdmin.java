@@ -39,5 +39,9 @@ public class ControlAdmin {
     public Receipt[] Getreceipt(){
         return adminmanger.printrec();
     }
+    @GetMapping("/Refund")
+    public Receipt[] Getrefund(){
+        return adminmanger.Refundrec();
+    }
 }
 
