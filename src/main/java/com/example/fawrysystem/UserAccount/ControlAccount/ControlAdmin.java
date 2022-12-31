@@ -43,5 +43,9 @@ public class ControlAdmin {
     public Receipt[] Getrefund(){
         return adminmanger.Refundrec();
     }
+    @PutMapping("/actionrefund")
+    public Receipt actionrefund(@RequestParam String name,@RequestParam String action,@RequestParam int id){
+        return adminmanger.actionRefunds(name,action,id);
+    }
 }
 
