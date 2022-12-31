@@ -299,6 +299,30 @@ return receipt;}
     Receipt receipt = new Receipt(0,0,0+"", "", 0, " ", " ","NOT FOUND", "");
     return receipt ;   }
 
+    public Receipt [] printrec(String name) {
+        boolean f = false;
+        for (Customer customer : Database.customers) {
+            if (customer.getUsername().equals(name)) {
+                int i = Database.customers.indexOf(customer);
+                if (Database.customers.get(i).isLoggedIn()) {
+                    f = true;
+                }
+            }
+        }
+        if (f) {
+            for (Receipt r : Database.tr) {
+                if (name.equals(r.getUsername()) ) {
+                    Receipt[] rec = new Receipt[Database.tr.size()];
+                    for (int j = 0; j < Database.tr.size(); j++) {
+                        rec[j] = Database.tr.get(j);
+                    }
+                    return rec;
+                }
+            }
+        }else {Receipt receipt = new Receipt(0,0,0+"", "Error Customer", 0, " ", " ","", "");
+            return new Receipt[]{receipt};}
+        return null;
+    }
 
   
     public void returnamount(double amount, Customer c) {
