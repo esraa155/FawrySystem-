@@ -19,15 +19,21 @@ public class AuthenticationManager extends Account {
     public String log_in(String username, String password) {
         if (username.equals("admin")) {
             if (password.equals("admin")) {
-                this.admin.setloggedIn(true);
-                return ("successful Logged in");
+            	if (!admin.isLoggedIn()) {
+                 this.admin.setloggedIn(true);
+                 return ("successful Logged in");
+            	}
+            	else
+            	{
+            	   return ("admin already logged in");
+            	}
             }
 
             else {
                 return ("Check Password and try again");
             }
         }
-        return ("Check UserName or Password and try again");
+        return ("Check UserName and try again");
     }
 
     public String Log_out(String name) {

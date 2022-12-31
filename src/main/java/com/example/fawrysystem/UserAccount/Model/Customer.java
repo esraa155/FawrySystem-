@@ -73,8 +73,6 @@ public class Customer {
         this.phonenumber = phonenumber;
     }
 
-
-
     public String getEmail() {
         return email;
     }
@@ -103,8 +101,6 @@ public class Customer {
         return phonenumber;
     }
 
-
-
     public int getID() {
         return Id;
     }
@@ -117,7 +113,6 @@ public class Customer {
         this.frist = frist;
     }
 
-
     private  int idrec=0;
     public static ArrayList<Receipt> getTr() {
         return tr;
@@ -128,8 +123,6 @@ public class Customer {
     public int getIdrec() {
         return idrec;
     }
-
-
 
     public void setIdrec(int idrec) {
         this.idrec = idrec;

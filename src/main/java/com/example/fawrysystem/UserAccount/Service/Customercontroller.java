@@ -11,7 +11,7 @@ public class Customercontroller extends Account {
 	
     public String log_in(String username, String password) {
         int f = 4;
-        for (Customer c :Database.customers) {
+        for (Customer c :CustomerModel.customers) {
             if (c.getUsername().equals(username)) {
                 if (c.getPassword().equals(password)) {
                     if (!c.isLoggedIn()) {
@@ -31,7 +31,7 @@ public class Customercontroller extends Account {
             }
         }
         if (f == 0) {
-            return ("already logged in");
+            return ("username already logged in");
         } else if (f == 1) {
             return ("successful login");
         } else if (f == 2) {
