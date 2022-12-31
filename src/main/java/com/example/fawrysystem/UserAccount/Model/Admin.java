@@ -1,5 +1,8 @@
 package com.example.fawrysystem.UserAccount.Model;
 
+
+
+
 public class Admin {
     String username;
     String password;
