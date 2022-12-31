@@ -1,13 +1,9 @@
 package com.example.fawrysystem.UserAccount.Service;
-import com.example.fawrysystem.Database.CustomerModel;
-import com.example.fawrysystem.Database.Database;
-import com.example.fawrysystem.Database.ServiceModel;
+import com.example.fawrysystem.Database.*;
 import com.example.fawrysystem.Payment.*;
 import com.example.fawrysystem.Refund.RefundConcrete;
-import com.example.fawrysystem.UserAccount.Model.Customer;
-import com.example.fawrysystem.UserAccount.Model.Receipt;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import com.example.fawrysystem.UserAccount.Model.*;
+import org.springframework.stereotype.*;
 
 @Service
 @Component

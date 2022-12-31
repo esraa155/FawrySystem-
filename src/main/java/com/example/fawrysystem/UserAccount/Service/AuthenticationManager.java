@@ -1,16 +1,11 @@
 package com.example.fawrysystem.UserAccount.Service;
-
 import com.example.fawrysystem.Database.ReceiptModel;
-import com.example.fawrysystem.Payment.DiscountController;
 import com.example.fawrysystem.Payment.Special;
-import com.example.fawrysystem.Refund.RefundConcrete;
-import com.example.fawrysystem.UserAccount.Model.Admin;
-import com.example.fawrysystem.UserAccount.Model.Receipt;
+import com.example.fawrysystem.UserAccount.Model.*;
 import org.springframework.stereotype.Service;
 
 
 @Service
-
 public class AuthenticationManager extends Account {
     Admin admin = new Admin();
     public static AuthenticationManager instance = new AuthenticationManager();

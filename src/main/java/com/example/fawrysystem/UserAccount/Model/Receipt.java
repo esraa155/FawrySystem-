@@ -1,8 +1,5 @@
 package com.example.fawrysystem.UserAccount.Model;
-
-import com.example.fawrysystem.Database.CustomerModel;
-import com.example.fawrysystem.Database.Database;
-import com.example.fawrysystem.Database.ReceiptModel;
+import com.example.fawrysystem.Database.*;
 
 public class Receipt {
 
@@ -10,7 +7,6 @@ public class Receipt {
     private int id=0;
     private String serviceName;
     private String provName;
-
     private String Discount;
     protected double servicePrice=0;
     private double userAmount;
@@ -43,7 +39,7 @@ public class Receipt {
     }
 
     public Receipt(double servicePrice,double userAmount,String discount,String username,int customerReceiptId,String serviceName,String provName,String Status,String paymentway) {
- this.Discount=discount;
+        this.Discount=discount;
         this.username=username;
         this.userAmount=userAmount;
         this.id=customerReceiptId;
