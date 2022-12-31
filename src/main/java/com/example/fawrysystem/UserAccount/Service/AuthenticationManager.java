@@ -10,30 +10,27 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
 @Service
 
 public class AuthenticationManager extends Account {
     Admin admin = new Admin();
     protected ArrayList<Receipt> refundArr = new ArrayList<Receipt>();
-    protected ArrayList<Receipt> accepted=new ArrayList<Receipt>();
-    protected ArrayList<Receipt> refused=new ArrayList<Receipt>();
+    protected ArrayList<Receipt> accepted = new ArrayList<Receipt>();
+    protected ArrayList<Receipt> refused = new ArrayList<Receipt>();
     public static AuthenticationManager instance = new AuthenticationManager();
     Customercontroller customercontroller = new Customercontroller();
     protected double newamount;
 
-    public static AuthenticationManager getInstance(){
+    public static AuthenticationManager getInstance() {
         instance.admin.setusername("admin");
         instance.admin.setpassword("admin");
         instance.type = "admin";
         return instance;
     }
 
-
     public String log_in(String username, String password) {
-        if(username.equals("admin")) {
-            if(password.equals("admin")) {
+        if (username.equals("admin")) {
+            if (password.equals("admin")) {
                 this.admin.setloggedIn(true);
                 return ("successful Logged in");
             }
@@ -44,50 +41,39 @@ public class AuthenticationManager extends Account {
         }
         return ("Check UserName or Password");
     }
-    public String Log_out( String name){
-        if(admin.isLoggedIn())
-        {
+
+    public String Log_out(String name) {
+        if (admin.isLoggedIn()) {
             this.admin.setloggedIn(false);
             return ("Logged out");
-        }
-        else {
+        } else {
             return ("Wrong logout !!");
         }
     }
-    public boolean addDiscount(String s,double p) {
-        Special d=new Special();
-        if(admin.isLoggedIn()){
-            if(d.add(s, p)) {
+
+    public boolean addDiscount(String s, double p) {
+        Special d = new Special();
+        if (admin.isLoggedIn()) {
+            if (d.add(s, p)) {
 
                 return true;
-            }
-            else {
+            } else {
                 return false;
             }
-        }
-       else {
-           return false;
+        } else {
+            return false;
         }
     }
 
-    public void printrec() {
-        for (Customer customer : Database.customers) {
-            for (Receipt r : Database.tr) {
-                if (customer.getUsername()==r.getUsername()){
-                    System.out.println("Receipt id : " + r.getUsername());
-                    System.out.println("===============================");
-                    System.out.println("Receipt id : " + r.getId());
-                    System.out.println("Service name : " + r.getServiceName());
-                    System.out.println("Amount : " + r.getServicePrice());
-                    System.out.println("Statu : " + r.getStatus());
-                    System.out.println("--------------------------------------");
-                }
-
+    public Receipt[] printrec() {
+        if (admin.isLoggedIn()) {
+            Receipt[] rec = new Receipt[Database.tr.size()];
+            for (int j = 0; j < Database.tr.size(); j++) {
+                rec[j] = Database.tr.get(j);
             }
-            System.out.println("*************************************");
-
+            return rec;
         }
-
+        return null;
     }
 
     public void listRefunds(String s) {

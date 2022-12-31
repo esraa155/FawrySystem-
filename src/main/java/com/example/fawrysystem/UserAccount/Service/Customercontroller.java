@@ -24,7 +24,7 @@ import java.util.Scanner;
 
 @Service
 @Component
-  public class Customercontroller extends Account  {
+  public class Customercontroller extends Account {
     Scanner input = new Scanner(System.in);
     Customer customer = new Customer();
     AuthenticationManager authenticationManager;
@@ -299,32 +299,34 @@ return receipt;}
     Receipt receipt = new Receipt(0,0,0+"", "", 0, " ", " ","NOT FOUND", "");
     return receipt ;   }
 
-    public Receipt [] printrec(String name) {
-        boolean f = false;
-        for (Customer customer : Database.customers) {
-            if (customer.getUsername().equals(name)) {
-                int i = Database.customers.indexOf(customer);
-                if (Database.customers.get(i).isLoggedIn()) {
-                    f = true;
-                }
+
+   public Receipt [] printrec(String name) {
+    boolean f = false;
+    for (Customer customer : Database.customers) {
+        if (customer.getUsername().equals(name)) {
+            int i = Database.customers.indexOf(customer);
+            if (Database.customers.get(i).isLoggedIn()) {
+                f = true;
             }
         }
-        if (f) {
-            for (Receipt r : Database.tr) {
-                if (name.equals(r.getUsername()) ) {
-                    Receipt[] rec = new Receipt[Database.tr.size()];
-                    for (int j = 0; j < Database.tr.size(); j++) {
-                        rec[j] = Database.tr.get(j);
-                    }
-                    return rec;
-                }
-            }
-        }else {Receipt receipt = new Receipt(0,0,0+"", "Error Customer", 0, " ", " ","", "");
-            return new Receipt[]{receipt};}
-        return null;
     }
+    if (f) {
+            int n=0;
+                for (int j = 0; j < Database.tr.size(); j++) {
+                    if (name.equals(Database.tr.get(j).getUsername()))
+                      n+=1;
+                }
+            Receipt[] rec = new Receipt[n];
+            for (int j = 0; j < Database.tr.size(); j++) {
+                if (name.equals(Database.tr.get(j).getUsername()))
+                rec[j] = Database.tr.get(j);
+            }
+                return rec;
 
-  
+        }
+    else {Receipt receipt = new Receipt(0,0,0+"", "Error Customer", 0, " ", " ","", "");
+        return new Receipt[]{receipt};}
+}
     public void returnamount(double amount, Customer c) {
         for (int j = 0; j < Database.customers.size(); j++) {
             if (c.getUsername() == Database.customers.get(j).getUsername()) {
