@@ -46,6 +46,9 @@ public Receipt payment(@RequestParam String name,@PathVariable("sername") String
         return Customercontroller.requestRefund(name,id);
 
     }
-    
+    @GetMapping("/Myreceipt")
+    public Receipt[] payment(@RequestParam String name) {
+        return Customercontroller.printrec(name);
+    }
 
 }
