@@ -41,4 +41,10 @@ public Receipt payment(@RequestParam String name,@PathVariable("sername") String
         ///Service/Internet/Provider/WEInternet/Paymentway/Wallet
     }
 
+    @PutMapping("/Sendrefund")
+    public Receipt payment(@RequestParam String name,@RequestParam int id){
+        return Customercontroller.requestRefund(name,id);
+
+    }
+
 }
