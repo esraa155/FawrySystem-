@@ -1,5 +1,6 @@
 package com.example.fawrysystem.UserAccount.Service;
 import com.example.fawrysystem.Database.ReceiptModel;
+import com.example.fawrysystem.Database.addmoneyDb;
 import com.example.fawrysystem.Payment.Special;
 import com.example.fawrysystem.UserAccount.Model.*;
 import org.springframework.stereotype.Service;
@@ -105,6 +106,18 @@ public class AuthenticationManager extends Account {
         }
         return null;
 
+    }
+    public addmoney[ ] Getaddmoney(){
+        if (admin.isLoggedIn()) {
+            addmoney[] ad = new addmoney[addmoneyDb.addmoney.size()];
+            for (int j = 0; j < addmoneyDb.addmoney.size(); j++) {
+    
+                    ad[j] = addmoneyDb.addmoney.get(j);
+            }
+            return ad;
+        }
+        return null;
+    
     }
 
 }
