@@ -8,37 +8,38 @@ import org.springframework.stereotype.*;
 @Service
 @Component
 public class Customercontroller extends Account {
-
-    public String log_in(String username, String password) 
-    {
-        for (int i = 0; i < CustomerModel.customers.size(); i++) 
-        {
-            if (CustomerModel.customers.get(i).getUsername().equals(username)) 
-            {
-                if (CustomerModel.customers.get(i).getPassword().equals(password)) 
-                {
-                    if (!CustomerModel.customers.get(i).isLoggedIn()) 
-                    {
-                        CustomerModel.customers.get(i).setLoggedIn(true);
-                             return ("successful login");
-                    } 
-                    else 
-                    {
-                    	return ("already logged in");
+	
+	public String log_in(String username, String password) {
+        int f = 5;
+        for (Customer c :CustomerModel.customers) {
+            if (c.getUsername().equals(username)) {
+                if (c.getPassword().equals(password)) {
+                    if (!c.isLoggedIn()) {
+                        c.setLoggedIn(true);
+                        f = 1;
+                        break;
+                    } else {
+                        f = 0;
+                        break;
                     }
-                } 
-                else 
-                {
-                	return ("Wrong password and try again");
+                } else {
+                    f = 2;
                 }
 
-            } 
-            else 
-            {
-            	return ("Wrong Username and try again");
+            } else {
+                f = 3;
             }
         }
-            return ("Account Not Exist");
+        if (f == 0) {
+            return ("already logged in");
+        } else if (f == 1) {
+            return ("successful login");
+        } else if (f == 2) {
+            return ("Wrong password");
+        } else if (f == 3) {
+            return ("Wrong user name");
+        } else return ("Account Not Exist");
+
     }
 
     public String Log_out(String username) {
