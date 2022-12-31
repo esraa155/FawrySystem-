@@ -1,5 +1,4 @@
 package com.example.fawrysystem.Servicee;
-
 import com.example.fawrysystem.Service.ServiceProvider.*;
 
 public class Internet implements Servicee {

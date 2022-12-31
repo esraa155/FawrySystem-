@@ -1,9 +1,5 @@
 package com.example.fawrysystem.Servicee;
-
-import com.example.fawrysystem.Service.DonationProvider.DonationProvider;
-import com.example.fawrysystem.Service.DonationProvider.Hospital;
-import com.example.fawrysystem.Service.DonationProvider.NGO;
-import com.example.fawrysystem.Service.DonationProvider.School;
+import com.example.fawrysystem.Service.DonationProvider.*;
 
 public class Donation implements Servicee {
     DonationProvider Dp;

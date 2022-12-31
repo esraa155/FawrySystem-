@@ -1,12 +1,6 @@
 package com.example.fawrysystem.Refund;
-
-import com.example.fawrysystem.Database.CustomerModel;
-import com.example.fawrysystem.Database.Database;
-import com.example.fawrysystem.Database.ReceiptModel;
-import com.example.fawrysystem.UserAccount.Model.Admin;
-import com.example.fawrysystem.UserAccount.Model.Customer;
-import com.example.fawrysystem.UserAccount.Model.Receipt;
-import com.example.fawrysystem.UserAccount.Service.Customercontroller;
+import com.example.fawrysystem.Database.*;
+import com.example.fawrysystem.UserAccount.Model.*;
 
 public class RefundConcrete extends Refund
 {
@@ -38,10 +32,6 @@ public class RefundConcrete extends Refund
         Receipt receipt = new Receipt(0, 0, 0 + "", "", 0, " ", " ", "NOT FOUND", "");
         return receipt;
     }
-
-    Admin admin = new Admin();
-
-
 
 
 }
