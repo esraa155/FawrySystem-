@@ -9,25 +9,25 @@ import org.springframework.stereotype.*;
 @Component
 public class Customercontroller extends Account {
 	
-	public String log_in(String username, String password) {
-        int f = 5;
-        for (Customer c :CustomerModel.customers) {
+    public String log_in(String username, String password) {
+        int f = 4;
+        for (Customer c :Database.customers) {
             if (c.getUsername().equals(username)) {
                 if (c.getPassword().equals(password)) {
                     if (!c.isLoggedIn()) {
                         c.setLoggedIn(true);
                         f = 1;
-                        break;
-                    } else {
+                    } else if(f!=1){
                         f = 0;
-                        break;
-                    }
-                } else {
-                    f = 2;
-                }
 
-            } else {
+                    }
+                } else if (f!=0&&f!=1) {
+                    f = 2;
+
+                }
+            } else if(f!=0&&f!=1&&f!=2){
                 f = 3;
+
             }
         }
         if (f == 0) {
