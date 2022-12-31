@@ -26,7 +26,7 @@ public class Controlcoustomer {
         return Customercontroller.Log_out(name);
     }
     @GetMapping("/Sreach")
-    public String Sreach(@RequestParam String name,@RequestParam String sername){
+    public String Sreach(@RequestParam String name , @RequestParam String sername){
      return Customercontroller.search(name,sername);
     }
 
@@ -40,4 +40,5 @@ public Receipt payment(@RequestParam String name,@PathVariable("sername") String
         return Customercontroller.paymentway(name,sername,prov,payway,amount);
         ///Service/Internet/Provider/WEInternet/Paymentway/Wallet
     }
+
 }

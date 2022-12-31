@@ -24,7 +24,7 @@ import java.util.Scanner;
 
 @Service
 @Component
-  public class Customercontroller extends Account implements Observer {
+  public class Customercontroller extends Account  {
     Scanner input = new Scanner(System.in);
     Customer customer = new Customer();
     AuthenticationManager authenticationManager;
@@ -270,34 +270,37 @@ import java.util.Scanner;
 return receipt;}
    }
 
-    public void requestRefund(int id) {
-        boolean notF = false;
+   public Receipt requestRefund(String name,int id) {
+
+    boolean f = false;
+    for (Customer customer : Database.customers) {
+        if (customer.getUsername().equals(name)) {
+            int i = Database.customers.indexOf(customer);
+            if (Database.customers.get(i).isLoggedIn()) {
+                f = true;
+            }
+        }
+    }
+    if (f) {
         for (Receipt r : Database.tr) {
             if (id == r.getId()) {
                 r.setStatus("Waiting");
                 int i = Database.tr.indexOf(r);
                 Database.tr.set(i, r);
-                notF = true;
-                break;
+                return r;
             }
         }
-        if (notF == false) {
-            System.out.println("Not Fount");
-        }
+    }else {
+        Receipt receipt = new Receipt(0,0,0+"", "Error Customer", 0, " ", " ","", "");
+        return receipt ;
     }
 
-    public void printrec(Customer s) {
-        for (Receipt r : Database.tr) {
-            if (s.getUsername() == r.getUsername()) {
-                System.out.println("Receipt id : " + r.getId());
-                System.out.println("Customer name : " + r.getUsername());
-                System.out.println("Service name : " + r.getServiceName());
-                System.out.println("Amount : " + r.getServicePrice());
-                System.out.println("Statu : " + r.getStatus());
-                System.out.println("==========================");
-            }
-        }
-    }
+
+    Receipt receipt = new Receipt(0,0,0+"", "", 0, " ", " ","NOT FOUND", "");
+    return receipt ;   }
+
+
+  
     public void returnamount(double amount, Customer c) {
         for (int j = 0; j < Database.customers.size(); j++) {
             if (c.getUsername() == Database.customers.get(j).getUsername()) {
