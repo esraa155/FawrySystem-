@@ -67,7 +67,7 @@ public class Customercontroller extends Account {
         return ("successful sign up");
     }
      Wallet W=new Wallet();
-    public String addwallet(String name, double amount) {
+    public addmoney addwallet(String name, double amount) {
        return W.addwallet(name,amount);
     }
 

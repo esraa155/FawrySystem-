@@ -2,7 +2,9 @@ package com.example.fawrysystem.Payment;
 
 import com.example.fawrysystem.Database.CustomerModel;
 import com.example.fawrysystem.Database.Database;
+import com.example.fawrysystem.Database.addmoneyDb;
 import com.example.fawrysystem.UserAccount.Model.Customer;
+import com.example.fawrysystem.UserAccount.Model.addmoney;
 
 public class Wallet implements Payment{
     private double amount;
@@ -20,23 +22,25 @@ public class Wallet implements Payment{
             setAmount(customeramount);
         }
 
-    public String addwallet(String name, double amount) {
-        boolean f = false;
-        int i = 0;
-        for (Customer customer : CustomerModel.customers) {
-            if (customer.getUsername().equals(name)) {
-                i = CustomerModel.customers.indexOf(customer);
-                if (CustomerModel.customers.get(i).isLoggedIn()) {
-                    f = true;
+        public addmoney addwallet(String name, double amount) {
+            boolean f = false;
+            int i = 0;
+            for (Customer customer : CustomerModel.customers) {
+                if (customer.getUsername().equals(name)) {
+                    i = CustomerModel.customers.indexOf(customer);
+                    if (CustomerModel.customers.get(i).isLoggedIn()) {
+                        f = true;
+                    }
                 }
             }
+            if (f) {
+                double n=CustomerModel.customers.get(i).getAmount() + amount;
+                CustomerModel.customers.get(i).setAmount(n);
+    //            Database.customers.set(i, Database.customers.get(i));
+                addmoney e= new addmoney(name,n,amount);
+                  addmoneyDb.addmoney.add(e);
+    return e;
+            }
+            return  null;
         }
-        if (f) {
-            CustomerModel.customers.get(i).setAmount(CustomerModel.customers.get(i).getAmount() + amount);
-            return ("wallet Amount = " + CustomerModel.customers.get(i).getAmount());
-
-        }
-        return ("Wrong !!Check you login ");
-
-    }
 }

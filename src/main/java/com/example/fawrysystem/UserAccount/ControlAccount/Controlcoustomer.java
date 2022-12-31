@@ -1,6 +1,7 @@
 package com.example.fawrysystem.UserAccount.ControlAccount;
 import com.example.fawrysystem.Payment.Discount;
 import com.example.fawrysystem.UserAccount.Model.Receipt;
+import com.example.fawrysystem.UserAccount.Model.addmoney;
 import com.example.fawrysystem.UserAccount.Service.Customercontroller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -50,8 +51,8 @@ public class Controlcoustomer {
     public Receipt[] payment(@RequestParam String name) {
         return Customercontroller.printrec(name);
     }
-    @PutMapping("/Addwallet")
-    public String add(@RequestParam String name,@RequestParam double amount){
+    @PostMapping("/Addwallet")
+    public addmoney add(@RequestParam String name,@RequestParam double amount){
       return Customercontroller.addwallet(name, amount);
     }
 
