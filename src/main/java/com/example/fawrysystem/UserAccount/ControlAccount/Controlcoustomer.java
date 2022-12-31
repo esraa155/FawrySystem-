@@ -36,9 +36,9 @@ public class Controlcoustomer {
     }
 
     @GetMapping("/Service/{sername}/Provider/{prov}/Paymentway/{payway}")
-public Receipt payment(@RequestParam String name,@PathVariable("sername") String sername,@PathVariable("prov") String prov,@PathVariable("payway") String payway,@RequestParam double amount ){
+     public Receipt payment(@RequestParam String name,@PathVariable("sername") String sername,@PathVariable("prov") String prov,@PathVariable("payway") String payway,@RequestParam double amount ){
         return Customercontroller.paymentway(name,sername,prov,payway,amount);
-        ///Service/Internet/Provider/WEInternet/Paymentway/Wallet
+        ///Service/Internet/Provider/WEInternet/Payment way/Wallet
     }
 
     @PutMapping("/Sendrefund")

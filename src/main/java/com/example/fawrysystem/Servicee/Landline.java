@@ -1,8 +1,6 @@
 package com.example.fawrysystem.Servicee;
+import com.example.fawrysystem.Service.Plan.*;
 
-import com.example.fawrysystem.Service.Plan.Monthly;
-import com.example.fawrysystem.Service.Plan.Plan;
-import com.example.fawrysystem.Service.Plan.Quarter;
 public class Landline implements Servicee {
     Plan p;
     String name;
