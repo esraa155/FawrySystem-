@@ -1,8 +1,5 @@
 package com.example.fawrysystem.Payment;
-
-import com.example.fawrysystem.Database.Database;
 import com.example.fawrysystem.Database.DiscountModel;
-import com.example.fawrysystem.UserAccount.Model.Customer;
 
 public class Special extends Discount{
     private String companyname;

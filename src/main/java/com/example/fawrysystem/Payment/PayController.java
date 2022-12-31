@@ -1,11 +1,7 @@
 package com.example.fawrysystem.Payment;
-
-import com.example.fawrysystem.Database.CustomerModel;
-import com.example.fawrysystem.Database.DiscountModel;
-import com.example.fawrysystem.Database.ReceiptModel;
+import com.example.fawrysystem.Database.*;
 import com.example.fawrysystem.Servicee.*;
-import com.example.fawrysystem.UserAccount.Model.Customer;
-import com.example.fawrysystem.UserAccount.Model.Receipt;
+import com.example.fawrysystem.UserAccount.Model.*;
 
 public class PayController {
 

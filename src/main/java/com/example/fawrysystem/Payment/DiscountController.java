@@ -1,7 +1,5 @@
 package com.example.fawrysystem.Payment;
-import com.example.fawrysystem.Database.CustomerModel;
-import com.example.fawrysystem.Database.DiscountModel;
-import com.example.fawrysystem.UserAccount.Model.Admin;
+import com.example.fawrysystem.Database.*;
 import com.example.fawrysystem.UserAccount.Model.Customer;
 
 public class DiscountController {
@@ -24,8 +22,6 @@ public class DiscountController {
             return d;
         } else
             return null;
-
     }
-Admin admin=new Admin();
 
 }
