@@ -87,4 +87,34 @@ public class AuthenticationManager extends Account {
         }
         return null;
     }
+
+    public Receipt actionRefunds(String s ,String action,int id ) {
+        if (admin.isLoggedIn()){
+            Receipt r=new Receipt();
+            Customercontroller c1= new Customercontroller();
+            for (int i=0;i<Database.tr.size();i++){
+                if (s.equals(Database.tr.get(i).getUsername()) && id==Database.tr.get(i).getId()&&Database.tr.get(i).getStatus().equals("Waiting")){
+                    switch (action) {
+                        case "Accept":
+                            r=Database.tr.get(i);
+                            r.setStatus("Accept refund");
+                           r.setUserAmount( c1.returnamount(Database.tr.get(i).getServicePrice(), s));
+                            Database.tr.set(i,r);
+                            return r;
+                        case "Refuse":
+                            r=Database.tr.get(i);
+
+                            Database.tr.get(i).setStatus("Refuse refund");
+                            Database.tr.set(i,r);
+                            return r;
+                    }
+
+                }
+
+            }
+        }
+        return null;
+
+                    }
+
 }

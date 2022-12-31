@@ -327,11 +327,16 @@ return receipt;}
     else {Receipt receipt = new Receipt(0,0,0+"", "Error Customer", 0, " ", " ","", "");
         return new Receipt[]{receipt};}
 }
-    public void returnamount(double amount, Customer c) {
-        for (int j = 0; j < Database.customers.size(); j++) {
-            if (c.getUsername() == Database.customers.get(j).getUsername()) {
-                c.setAmount(c.getAmount() + amount);
-            }
+public double returnamount(double amount, String c) {
+    for (int j = 0; j < Database.customers.size(); j++) {
+        if (c.equals(Database.customers.get(j).getUsername())) {
+            Customer a=new Customer();
+            a=Database.customers.get(j);
+            a.setAmount(Database.customers.get(j).getAmount()+amount);
+            Database.customers.set(j,a);
+            return Database.customers.get(j).getAmount();
         }
     }
+    return 0;
+}
 }
