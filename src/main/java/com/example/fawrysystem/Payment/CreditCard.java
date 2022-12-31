@@ -3,9 +3,7 @@ package com.example.fawrysystem.Payment;
 public class CreditCard implements Payment{
     private double amount;
 
-    public CreditCard() {
-
-    }
+    public CreditCard() {}
 
     public void setAmount(double amount) {
         this.amount = amount;
