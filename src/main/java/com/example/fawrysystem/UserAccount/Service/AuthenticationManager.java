@@ -76,38 +76,15 @@ public class AuthenticationManager extends Account {
         return null;
     }
 
-    public void listRefunds(String s) {
-        Customercontroller cl = new Customercontroller();
-        for (int j = 0; j < Database.customers.size(); j++) {
-            if (s.equals(Database.customers.get(j).getUsername())) {
-                for (int i = 0; i < Database.tr.size(); i++) {
-                    if (Database.tr.get(i).getStatus() == "Waiting") {
-                        System.out.println("service name : " + Database.tr.get(i).getServiceName());
-                        System.out.println("Amount : " + Database.tr.get(i).getServicePrice());
-                        System.out.println("1-Accept");
-                        System.out.println("2-Refuse");
-                        Scanner Obj = new Scanner(System.in);
-                        int choice = Obj.nextInt();
-                        switch (choice) {
-                            case 1:
-                                Database.tr.get(i).setStatus("Accept refund");
-                                cl.returnamount(Database.tr.get(i).getServicePrice(), Database.customers.get(i));
-                                System.out.println("Accept refund");
-                                break;
-                            case 2:
-                                Database.tr.get(i).setStatus("Refuse refund");
-                                System.out.println("Refuse refund");
-                                break;
-                        }
-                    } else {
-                        System.out.println("Not Found");
-                    }
-                }
-
-            } else {
-                System.out.println("Not Found coustomer");
+    public Receipt[] Refundrec() {
+        if (admin.isLoggedIn()) {
+            Receipt[] rec = new Receipt[Database.tr.size()];
+            for (int j = 0; j < Database.tr.size(); j++) {
+                if (Database.tr.get(j).getStatus() == "Waiting")
+                rec[j] = Database.tr.get(j);
             }
-
+            return rec;
         }
+        return null;
     }
 }
