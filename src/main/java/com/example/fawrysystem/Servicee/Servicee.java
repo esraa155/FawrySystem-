@@ -1,6 +1,6 @@
-package com.example.fawrysystem.Service;
+package com.example.fawrysystem.Servicee;
 
-public interface Service {
+public interface Servicee {
     public void createProvider(int option);
     public String getname();
 

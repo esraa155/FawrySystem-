@@ -1,34 +1,37 @@
-package com.example.fawrysystem.Service;
+package com.example.fawrysystem.Servicee;
 
 import com.example.fawrysystem.Service.ServiceProvider.*;
 
-public class Mobile implements Servicee {
+public class Internet implements Servicee {
     ServiceProvider prov;
-    String name ;
-    public Mobile(){
-
+    String name;
+    public Internet(){
     }
+
+
     public void createProvider(int option){
         if(option == 1){
-            prov = new WEMobile();
+            prov = new WEInternet();
 
         }
         else if(option == 2){
-            prov = new VodafoneMobile();
+            prov = new VodafoneInternet();
 
         }
         else if(option == 3){
-            prov = new EtisalatMobile();
+            prov = new EtisalatInternet();
 
         }
-
         else if(option == 4){
-            prov = new OrangeMobile();
+            prov = new OrangeInternet();
         }
-        name = prov.getname();
+        name=prov.getname();
     }
+
+
     public String getname() {
         return name;
     }
+
 }
 

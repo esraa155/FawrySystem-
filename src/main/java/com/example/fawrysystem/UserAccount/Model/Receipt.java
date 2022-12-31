@@ -49,7 +49,7 @@ public class Receipt {
 
 
     public Receipt(double servicePrice,double userAmount,String discount,String username,int customerReceiptId,String serviceName,String provName,String Status,String paymentway) {
-this.Discount=discount;
+ this.Discount=discount;
         this.username=username;
         this.userAmount=userAmount;
         this.id=customerReceiptId;
