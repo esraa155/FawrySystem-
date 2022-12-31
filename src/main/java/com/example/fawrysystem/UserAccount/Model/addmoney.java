@@ -1,8 +1,7 @@
 package com.example.fawrysystem.UserAccount.Model;
 
-import java.util.Date;
-
 public class addmoney {
+	
     private String Uesrname;
     private double Usermoney;
     private double Addmoney;

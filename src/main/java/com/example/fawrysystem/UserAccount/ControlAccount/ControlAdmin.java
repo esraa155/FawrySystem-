@@ -1,14 +1,8 @@
 package com.example.fawrysystem.UserAccount.ControlAccount;
-
-
-import com.example.fawrysystem.UserAccount.Model.Receipt;
-import com.example.fawrysystem.UserAccount.Model.addmoney;
+import com.example.fawrysystem.UserAccount.Model.*;
 import com.example.fawrysystem.UserAccount.Service.AuthenticationManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-
-
 
 @RestController
 @RequestMapping("/Admin")

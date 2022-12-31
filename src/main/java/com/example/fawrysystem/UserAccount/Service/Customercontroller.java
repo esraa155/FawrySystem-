@@ -9,36 +9,36 @@ import org.springframework.stereotype.*;
 @Component
 public class Customercontroller extends Account {
 
-    public String log_in(String username, String password) {
-        int f = 5;
-        for (int i = 0; i < CustomerModel.customers.size(); ++i) {
-            if (CustomerModel.customers.get(i).getUsername().equals(username)) {
-                if (CustomerModel.customers.get(i).getPassword().equals(password)) {
-                    if (!CustomerModel.customers.get(i).isLoggedIn()) {
+    public String log_in(String username, String password) 
+    {
+        for (int i = 0; i < CustomerModel.customers.size(); i++) 
+        {
+            if (CustomerModel.customers.get(i).getUsername().equals(username)) 
+            {
+                if (CustomerModel.customers.get(i).getPassword().equals(password)) 
+                {
+                    if (!CustomerModel.customers.get(i).isLoggedIn()) 
+                    {
                         CustomerModel.customers.get(i).setLoggedIn(true);
-                        f = 1;
-                    } else {
-                        f = 0;
+                             return ("successful login");
+                    } 
+                    else 
+                    {
+                    	return ("already logged in");
                     }
-                } else {
-                    f = 2;
+                } 
+                else 
+                {
+                	return ("Wrong password and try again");
                 }
 
-            } else {
-                f = 3;
+            } 
+            else 
+            {
+            	return ("Wrong Username and try again");
             }
         }
-        if (f == 0) {
-            return ("already logged in");
-        } else if (f == 1) {
-            return ("successful login");
-        } else if (f == 2) {
-            return ("Wrong password and try again");
-        } else if (f == 3) {
-            return ("Wrong Username and try again");
-        } else
             return ("Account Not Exist");
-
     }
 
     public String Log_out(String username) {
@@ -106,7 +106,7 @@ public class Customercontroller extends Account {
         }
         return (" ");
     }
-DiscountController DC=new DiscountController();
+    DiscountController DC=new DiscountController();
     public Discount[] checkDiscount(String username) {
 
          return  DC.checkDiscount(username);

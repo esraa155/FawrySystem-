@@ -1,6 +1,4 @@
 package com.example.fawrysystem.UserAccount.Model;
-
-import java.util.ArrayList;
 import java.util.ArrayList;
 
 public class Customer {
