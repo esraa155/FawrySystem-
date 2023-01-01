@@ -16,6 +16,9 @@ public class PayController {
                 }
             }
         }
+
+
+        
         if (f) {
             double dis = 0;
             Servicee ser;
