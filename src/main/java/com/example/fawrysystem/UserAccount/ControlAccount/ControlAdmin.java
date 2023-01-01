@@ -43,7 +43,7 @@ public class ControlAdmin {
         return adminmanger.actionRefunds(name,action,id);
     }
     @GetMapping("/addedmoney")
-    public addmoney[] added(){
+    public AddMoney[] added(){
         return adminmanger.Getaddmoney();
     }
 }
