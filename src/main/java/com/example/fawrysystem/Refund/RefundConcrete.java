@@ -7,20 +7,20 @@ public class RefundConcrete extends Refund
     public Receipt requestRefund(String name, int id) {
 
         boolean f = false;
-        for (Customer customer : CustomerModel.customers) {
+        for (Customer customer : CustomerDB.customers) {
             if (customer.getUsername().equals(name)) {
-                int i = CustomerModel.customers.indexOf(customer);
-                if (CustomerModel.customers.get(i).isLoggedIn()) {
+                int i = CustomerDB.customers.indexOf(customer);
+                if (CustomerDB.customers.get(i).isLoggedIn()) {
                     f = true;
                 }
             }
         }
         if (f) {
-            for (Receipt r : ReceiptModel.tr) {
+            for (Receipt r : ReceiptDB.tr) {
                 if (id == r.getId()) {
                     r.setStatus("Waiting");
-                    int i = ReceiptModel.tr.indexOf(r);
-                    ReceiptModel.tr.set(i, r);
+                    int i = ReceiptDB.tr.indexOf(r);
+                    ReceiptDB.tr.set(i, r);
                     return r;
                 }
             }

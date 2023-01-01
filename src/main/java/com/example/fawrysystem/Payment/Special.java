@@ -1,5 +1,5 @@
 package com.example.fawrysystem.Payment;
-import com.example.fawrysystem.Database.DiscountModel;
+import com.example.fawrysystem.Database.DiscountDB;
 
 public class Special extends Discount{
     private String companyname;
@@ -16,7 +16,7 @@ public class Special extends Discount{
 
     public boolean add(String n,double perc){
         Special s =new Special(n,perc);
-        DiscountModel.discount.add(s);
+        DiscountDB.discount.add(s);
         return true;
     }
 

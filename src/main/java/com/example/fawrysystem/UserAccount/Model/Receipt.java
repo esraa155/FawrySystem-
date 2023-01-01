@@ -98,24 +98,24 @@ public class Receipt {
 
     public Receipt[] printrec(String name) {
         boolean f = false;
-        for (Customer customer : CustomerModel.customers) {
+        for (Customer customer : CustomerDB.customers) {
             if (customer.getUsername().equals(name)) {
-                int i = CustomerModel.customers.indexOf(customer);
-                if (CustomerModel.customers.get(i).isLoggedIn()) {
+                int i = CustomerDB.customers.indexOf(customer);
+                if (CustomerDB.customers.get(i).isLoggedIn()) {
                     f = true;
                 }
             }
         }
         if (f) {
             int n = 0;
-            for (int j = 0; j < ReceiptModel.tr.size(); j++) {
-                if (name.equals(ReceiptModel.tr.get(j).getUsername()))
+            for (int j = 0; j < ReceiptDB.tr.size(); j++) {
+                if (name.equals(ReceiptDB.tr.get(j).getUsername()))
                     n += 1;
             }
             Receipt[] rec = new Receipt[n];
-            for (int j = 0; j < ReceiptModel.tr.size(); j++) {
-                if (name.equals(ReceiptModel.tr.get(j).getUsername()))
-                    rec[j] = ReceiptModel.tr.get(j);
+            for (int j = 0; j < ReceiptDB.tr.size(); j++) {
+                if (name.equals(ReceiptDB.tr.get(j).getUsername()))
+                    rec[j] = ReceiptDB.tr.get(j);
             }
             return rec;
 

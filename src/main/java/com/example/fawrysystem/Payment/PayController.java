@@ -8,10 +8,10 @@ public class PayController {
     public Receipt paymentway(String username, String sername, String prov, String payway, double amount) {
         boolean f = false;
         int i = 0;
-        for (Customer custome : CustomerModel.customers) {
+        for (Customer custome : CustomerDB.customers) {
             if (custome.getUsername().equals(username)) {
-                i = CustomerModel.customers.indexOf(custome);
-                if (CustomerModel.customers.get(i).isLoggedIn()) {
+                i = CustomerDB.customers.indexOf(custome);
+                if (CustomerDB.customers.get(i).isLoggedIn()) {
                     f = true;
                 }
             }
@@ -77,13 +77,13 @@ public class PayController {
                 return receipt;
             }
 
-            if (CustomerModel.customers.get(i).isFrist()) {
+            if (CustomerDB.customers.get(i).isFrist()) {
                 Discount d = new Overall();
                 amount = d.pdisco_calcuay(amount, 10);
                 dis = 10;
-                CustomerModel.customers.get(i).setFrist(false);
+                CustomerDB.customers.get(i).setFrist(false);
             } else {
-                for (Special s : DiscountModel.discount) {
+                for (Special s : DiscountDB.discount) {
                     if (prov.equals(s.getCompanyname())) {
                         dis = s.getPerc();
                         amount = s.pdisco_calcuay(amount, s.getPerc());
@@ -93,33 +93,33 @@ public class PayController {
             if (payway.equals("cridetcard")) {
                 Payment pay;
                 pay = new CreditCard();
-                pay.pay(CustomerModel.customers.get(i).getAmount(), amount);
-                CustomerModel.customers.get(i).setAmount(pay.getAmount());
-                Customer c = CustomerModel.customers.get(i);
-                CustomerModel.customers.set(i, c);
+                pay.pay(CustomerDB.customers.get(i).getAmount(), amount);
+                CustomerDB.customers.get(i).setAmount(pay.getAmount());
+                Customer c = CustomerDB.customers.get(i);
+                CustomerDB.customers.set(i, c);
             } else if (payway.equals("Wallet")) {
                 Payment pay;
                 pay = new Wallet();
-                pay.pay(CustomerModel.customers.get(i).getAmount(), amount);
-                CustomerModel.customers.get(i).setAmount(pay.getAmount());
-                Customer c = CustomerModel.customers.get(i);
-                CustomerModel.customers.set(i, c);
+                pay.pay(CustomerDB.customers.get(i).getAmount(), amount);
+                CustomerDB.customers.get(i).setAmount(pay.getAmount());
+                Customer c = CustomerDB.customers.get(i);
+                CustomerDB.customers.set(i, c);
             } else if (payway.equals("Cash")) {
                 Payment pay;
                 pay = new Cash();
-                pay.pay(CustomerModel.customers.get(i).getAmount(), amount);
-                CustomerModel.customers.get(i).setAmount(pay.getAmount());
-                Customer c = CustomerModel.customers.get(i);
-                CustomerModel.customers.set(i, c);
+                pay.pay(CustomerDB.customers.get(i).getAmount(), amount);
+                CustomerDB.customers.get(i).setAmount(pay.getAmount());
+                Customer c = CustomerDB.customers.get(i);
+                CustomerDB.customers.set(i, c);
             } else {
                 Receipt receipt = new Receipt(0, 0, 0 + "", " ", 0, " ", "", "", "Error");
                 return receipt;
             }
-            CustomerModel.customers.get(i).setIdrec(CustomerModel.customers.get(i).getIdrec() + 1);
-            Receipt receipt = new Receipt(amount, CustomerModel.customers.get(i).getAmount(), dis + "%",
-                    CustomerModel.customers.get(i).getUsername(), CustomerModel.customers.get(i).getIdrec(), sername,
+            CustomerDB.customers.get(i).setIdrec(CustomerDB.customers.get(i).getIdrec() + 1);
+            Receipt receipt = new Receipt(amount, CustomerDB.customers.get(i).getAmount(), dis + "%",
+                    CustomerDB.customers.get(i).getUsername(), CustomerDB.customers.get(i).getIdrec(), sername,
                     ser.getname(), "successful", payway);
-            ReceiptModel.tr.add(receipt);
+            ReceiptDB.tr.add(receipt);
             return receipt;
         }
 

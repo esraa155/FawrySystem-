@@ -11,7 +11,7 @@ public class Customercontroller extends Account {
 	
     public String log_in(String username, String password) {
         int f = 4;
-        for (Customer c :CustomerModel.customers) {
+        for (Customer c :CustomerDB.customers) {
             if (c.getUsername().equals(username)) {
                 if (c.getPassword().equals(password)) {
                     if (!c.isLoggedIn()) {
@@ -43,10 +43,10 @@ public class Customercontroller extends Account {
     }
 
     public String Log_out(String username) {
-        for (Customer customer : CustomerModel.customers) {
+        for (Customer customer : CustomerDB.customers) {
             if (customer.getUsername().equals(username)) {
-                int i = CustomerModel.customers.indexOf(customer);
-                if (CustomerModel.customers.get(i).isLoggedIn()) {
+                int i = CustomerDB.customers.indexOf(customer);
+                if (CustomerDB.customers.get(i).isLoggedIn()) {
                     customer.setLoggedIn(false);
                     return ("successfully Logged out");
                 } else {
@@ -58,13 +58,13 @@ public class Customercontroller extends Account {
     }
 
     public String sign_up(String email, String username, String password, String phonenumber, double amount) {
-        for (Customer customer : CustomerModel.customers) {
+        for (Customer customer : CustomerDB.customers) {
             if (customer.getUsername().equals(username)) {
                 return (" username already exits try again");
             }
         }
         Customer c = new Customer(email, username, password, phonenumber, amount);
-        CustomerModel.customers.add(c);
+        CustomerDB.customers.add(c);
         return ("successful sign up");
     }
      Wallet W=new Wallet();
@@ -73,26 +73,26 @@ public class Customercontroller extends Account {
     }
 
     public String search(String username, String sername) {
-        ServiceModel.servicesName.add("Mobile");
-        ServiceModel.servicesName.add("mobile");
-        ServiceModel.servicesName.add("Internet");
-        ServiceModel.servicesName.add("internet");
-        ServiceModel.servicesName.add("Landline");
-        ServiceModel.servicesName.add("landline");
-        ServiceModel.servicesName.add("Donation");
-        ServiceModel.servicesName.add("donation");
+        ServiceDB.servicesName.add("Mobile");
+        ServiceDB.servicesName.add("mobile");
+        ServiceDB.servicesName.add("Internet");
+        ServiceDB.servicesName.add("internet");
+        ServiceDB.servicesName.add("Landline");
+        ServiceDB.servicesName.add("landline");
+        ServiceDB.servicesName.add("Donation");
+        ServiceDB.servicesName.add("donation");
         boolean notF = false;
         boolean f = false;
-        for (Customer customer : CustomerModel.customers) {
+        for (Customer customer : CustomerDB.customers) {
             if (customer.getUsername().equals(username)) {
-                int i = CustomerModel.customers.indexOf(customer);
-                if (CustomerModel.customers.get(i).isLoggedIn()) {
+                int i = CustomerDB.customers.indexOf(customer);
+                if (CustomerDB.customers.get(i).isLoggedIn()) {
                     f = true;
                 }
             }
         }
         if (f) {
-            for (String names : ServiceModel.servicesName) {
+            for (String names : ServiceDB.servicesName) {
                 if (names.contains(sername)) {
                     notF = true;
                 }
@@ -125,13 +125,13 @@ public class Customercontroller extends Account {
          return Re.printrec(name);
     }
     public double returnamount(double amount, String c) {
-        for (int j = 0; j < CustomerModel.customers.size(); j++) {
-            if (c.equals(CustomerModel.customers.get(j).getUsername())) {
+        for (int j = 0; j < CustomerDB.customers.size(); j++) {
+            if (c.equals(CustomerDB.customers.get(j).getUsername())) {
                 Customer a = new Customer();
-                a = CustomerModel.customers.get(j);
-                a.setAmount(CustomerModel.customers.get(j).getAmount() + amount);
-                CustomerModel.customers.set(j, a);
-                return CustomerModel.customers.get(j).getAmount();
+                a = CustomerDB.customers.get(j);
+                a.setAmount(CustomerDB.customers.get(j).getAmount() + amount);
+                CustomerDB.customers.set(j, a);
+                return CustomerDB.customers.get(j).getAmount();
             }
         }
         return 0;

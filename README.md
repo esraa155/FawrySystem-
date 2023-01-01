@@ -20,4 +20,8 @@ To run the project on IntelliJ or VS Code IDEs:
 6. If needed, Enter data in params
 7. Click send
 =======================================================================================
+
 Java 17 or higher is required to run the project
+
+=======================================================================================
+

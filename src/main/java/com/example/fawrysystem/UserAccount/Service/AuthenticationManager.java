@@ -61,9 +61,9 @@ public class AuthenticationManager extends Account {
 
     public Receipt[] printrecadmin() {
         if (admin.isLoggedIn()) {
-            Receipt[] rec = new Receipt[ReceiptModel.tr.size()];
-            for (int j = 0; j < ReceiptModel.tr.size(); j++) {
-                rec[j] = ReceiptModel.tr.get(j);
+            Receipt[] rec = new Receipt[ReceiptDB.tr.size()];
+            for (int j = 0; j < ReceiptDB.tr.size(); j++) {
+                rec[j] = ReceiptDB.tr.get(j);
             }
             return rec;
         }
@@ -72,10 +72,10 @@ public class AuthenticationManager extends Account {
     public Receipt[] Refundrec() {
 
             if (admin.isLoggedIn()) {
-                Receipt[] rec = new Receipt[ReceiptModel.tr.size()];
-                for (int j = 0; j < ReceiptModel.tr.size(); j++) {
-                    if (ReceiptModel.tr.get(j).getStatus() == "Waiting")
-                        rec[j] = ReceiptModel.tr.get(j);
+                Receipt[] rec = new Receipt[ReceiptDB.tr.size()];
+                for (int j = 0; j < ReceiptDB.tr.size(); j++) {
+                    if (ReceiptDB.tr.get(j).getStatus() == "Waiting")
+                        rec[j] = ReceiptDB.tr.get(j);
                 }
                 return rec;
             }
@@ -88,20 +88,20 @@ public class AuthenticationManager extends Account {
         if (admin.isLoggedIn()){
             Receipt r=new Receipt();
             Customercontroller c1= new Customercontroller();
-            for (int i=0;i<ReceiptModel.tr.size();i++){
-                if (s.equals(ReceiptModel.tr.get(i).getUsername()) && id==ReceiptModel.tr.get(i).getId()&&ReceiptModel.tr.get(i).getStatus().equals("Waiting")){
+            for (int i=0;i<ReceiptDB.tr.size();i++){
+                if (s.equals(ReceiptDB.tr.get(i).getUsername()) && id==ReceiptDB.tr.get(i).getId()&&ReceiptDB.tr.get(i).getStatus().equals("Waiting")){
                     switch (action) {
                         case "Accept":
-                            r=ReceiptModel.tr.get(i);
+                            r=ReceiptDB.tr.get(i);
                             r.setStatus("Accept refund");
-                            r.setUserAmount( c1.returnamount(ReceiptModel.tr.get(i).getServicePrice(), s));
-                            ReceiptModel.tr.set(i,r);
+                            r.setUserAmount( c1.returnamount(ReceiptDB.tr.get(i).getServicePrice(), s));
+                            ReceiptDB.tr.set(i,r);
                             return r;
                         case "Refuse":
-                            r=ReceiptModel.tr.get(i);
+                            r=ReceiptDB.tr.get(i);
 
-                            ReceiptModel.tr.get(i).setStatus("Refuse refund");
-                            ReceiptModel.tr.set(i,r);
+                            ReceiptDB.tr.get(i).setStatus("Refuse refund");
+                            ReceiptDB.tr.set(i,r);
                             return r;
                     }
 
@@ -114,10 +114,10 @@ public class AuthenticationManager extends Account {
     }
     public addmoney[ ] Getaddmoney(){
         if (admin.isLoggedIn()) {
-            addmoney[] ad = new addmoney[addmoneyDb.addmoney.size()];
-            for (int j = 0; j < addmoneyDb.addmoney.size(); j++) {
+            addmoney[] ad = new addmoney[addmoneyDB.addmoney.size()];
+            for (int j = 0; j < addmoneyDB.addmoney.size(); j++) {
     
-                    ad[j] = addmoneyDb.addmoney.get(j);
+                    ad[j] = addmoneyDB.addmoney.get(j);
             }
             return ad;
         }
