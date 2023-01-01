@@ -1,4 +1,4 @@
-package com.example.fawrysystem.Servicee;
+package com.example.fawrysystem.Service;
 import com.example.fawrysystem.Service.Plan.*;
 
 public class Landline implements Servicee {
