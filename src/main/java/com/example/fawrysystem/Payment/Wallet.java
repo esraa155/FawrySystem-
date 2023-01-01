@@ -1,6 +1,6 @@
 package com.example.fawrysystem.Payment;
 import com.example.fawrysystem.Database.*;
-import com.example.fawrysystem.Database.addmoneyDB;
+import com.example.fawrysystem.Database.AddMoneyDB;
 import com.example.fawrysystem.UserAccount.Model.*;
 
     public class Wallet implements Payment{
@@ -19,7 +19,7 @@ import com.example.fawrysystem.UserAccount.Model.*;
             setAmount(customeramount);
         }
 
-        public addmoney addwallet(String name, double amount) {
+        public AddMoney addwallet(String name, double amount) {
             boolean f = false;
             int i = 0;
             for (Customer customer : CustomerDB.customers) {
@@ -33,8 +33,8 @@ import com.example.fawrysystem.UserAccount.Model.*;
             if (f) {
                 double n=CustomerDB.customers.get(i).getAmount() + amount;
                 CustomerDB.customers.get(i).setAmount(n);
-                addmoney e= new addmoney(name,n,amount);
-                  addmoneyDB.addmoney.add(e);
+                AddMoney e= new AddMoney(name,n,amount);
+                  AddMoneyDB.addmoney.add(e);
                    return e;
             }
             return  null;

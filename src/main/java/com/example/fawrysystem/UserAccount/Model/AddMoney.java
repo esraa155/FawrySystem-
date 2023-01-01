@@ -1,12 +1,12 @@
 package com.example.fawrysystem.UserAccount.Model;
 
-public class addmoney {
+public class AddMoney {
 	
     private String Uesrname;
     private double Usermoney;
     private double Addmoney;
 
-    public addmoney(String uesrname, double usermoney, double addmoney) {
+    public AddMoney(String uesrname, double usermoney, double addmoney) {
         this.Uesrname = uesrname;
         this.Usermoney = usermoney;
         this.Addmoney = addmoney;

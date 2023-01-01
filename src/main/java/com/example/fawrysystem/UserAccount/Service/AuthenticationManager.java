@@ -112,12 +112,12 @@ public class AuthenticationManager extends Account {
         return null;
 
     }
-    public addmoney[ ] Getaddmoney(){
+    public AddMoney[ ] Getaddmoney(){
         if (admin.isLoggedIn()) {
-            addmoney[] ad = new addmoney[addmoneyDB.addmoney.size()];
-            for (int j = 0; j < addmoneyDB.addmoney.size(); j++) {
+            AddMoney[] ad = new AddMoney[AddMoneyDB.addmoney.size()];
+            for (int j = 0; j < AddMoneyDB.addmoney.size(); j++) {
     
-                    ad[j] = addmoneyDB.addmoney.get(j);
+                    ad[j] = AddMoneyDB.addmoney.get(j);
             }
             return ad;
         }

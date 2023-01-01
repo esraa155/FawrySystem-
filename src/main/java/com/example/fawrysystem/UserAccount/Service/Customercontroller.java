@@ -27,7 +27,6 @@ public class Customercontroller extends Account {
                 }
             } else if(f!=0&&f!=1&&f!=2){
                 f = 3;
-
             }
         }
         if (f == 0) {
@@ -41,7 +40,6 @@ public class Customercontroller extends Account {
         } else return ("Account Not Exist");
 
     }
-
     public String Log_out(String username) {
         for (Customer customer : CustomerDB.customers) {
             if (customer.getUsername().equals(username)) {
@@ -68,7 +66,7 @@ public class Customercontroller extends Account {
         return ("successful sign up");
     }
      Wallet W=new Wallet();
-    public addmoney addwallet(String name, double amount) {
+    public AddMoney addwallet(String name, double amount) {
        return W.addwallet(name,amount);
     }
 
